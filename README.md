@@ -10,6 +10,7 @@
 
 
 
+
 ## 📺 시연 영상 
 
 <img src="https://user-images.githubusercontent.com/88928469/201088609-d9e8bafb-cb82-4c3d-aa5a-ec770e7fecb6.gif">
@@ -122,12 +123,15 @@ ref기반의 react-hook-from 라이브러리를 사용하여 사용자가 트리
 
 <details>
 <summary>사진 업로드가 안돼요</summary>
- Firebase로 업로드 되는 시간 사이에 사진을 등록하여 사진 업로드가 안되는 문제로 사진이 업로드되는 동안 loading spiner처리
+
+</br>
+
+ - Firebase로 업로드 되는 시간 사이에 사진을 등록하여 사진 업로드가 안되는 문제로 사진이 업로드되는 동안 loading spiner처리
+ 
+   <img src="https://user-images.githubusercontent.com/88928469/201101894-274d44cc-9f40-41f4-87ea-d2c29367efe0.png" width="250px">
 </details>
 
-<br />
-
-<!-- <details> -->
+<details>
 <summary>채팅 관련 문의</summary>
 
 </br>
@@ -138,7 +142,7 @@ ref기반의 react-hook-from 라이브러리를 사용하여 사용자가 트리
  > 제 채팅과 상대 채팅이 구분이 잘 안가요!
  - 본인 채팅 아래와 같이 구분하여 해결
  ![image](https://user-images.githubusercontent.com/88928469/201099737-8e9d35cc-7b62-4fcf-ac16-0a4dee65bc42.png)
-<!-- </details> -->
+</details>
 
 <br />
 
