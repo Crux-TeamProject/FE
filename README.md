@@ -1,81 +1,85 @@
-# 🧗‍♂️ CRUX! 🧗‍♂️
-
-### 클라이밍 유저들을 위한 모임, 정보 제공 커뮤니티 서비스입니다.
-
-<br>
-
-## [CRUX로 클라이밍 시작하기](https://youmadeit.shop/)
-
-<img src= "https://user-images.githubusercontent.com/67731994/194262200-818f0c6f-dd12-4e8d-8423-dbf0e6c4c40e.png" width="700" height="530"/>
-
-<br>
-
------
-
-## :rocket: 프론트엔드 팀원소개
-|팀원|깃허브|역할분담|
-|-----|---|---|
-|이용규🔰|[Github](https://github.com/chipmunkcol)|위치기반 클라이밍짐 찾기, 클라이밍짐 리뷰, 알림기능, 마이페이지|
-|임효림|[Github](https://github.com/01192mg)|회원가입, 크루 채팅,  크루 생성 및 크루 디테일|
-
-<br>
-<br>
-
-------
-
-## :rocket: 개발기간
-2022.8.26 ~ 2022.10.07
-
-<br>
-
-------
-
-## :rocket: 아키텍처
-<img src="https://user-images.githubusercontent.com/109011766/194456262-69a3f74a-4772-4bf7-9e4f-1b667bae8567.png" width="800px"/>
-<br>
-
-------
-
-## :rocket: API 명세서
-<br>
-[API 명세서 바로가기](https://www.notion.so/API-e5a62aa1845b47a5bc8c8dd10dbc22ac)
-
-<br>
-
-------
-
-## :rocket: 주요기능
-<br>
-
-- 소셜 로그인
-- 크루 생성 & 참가
-- 크루 상세페이지
-  - 크루 참가신청, 사진, 모임일정 등록
-- 크루 실시간 채팅방
-- 클라이밍짐 리스트
-  - 클라이밍짐을 지역별로 볼 수 있음
-  - 클라이밍짐의 후기를 남길 수 있음
-- 마이페이지 
-  - 내 프로필 수정 
-  - 내가 참가한 크루모임 & 즐겨찾기 한 클라이밍짐을 볼 수 있음
-
-<br>
-
-------
-
-## :rocket: Front-end 기술스택
-<br>
-
-<img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=white"> <img src="https://img.shields.io/badge/ReduxToolkit-764ABC?style=for-the-badge&logo=ReduxToolkit&logoColor=white">
-<img src="https://img.shields.io/badge/StyledComponent-DB7093?style=for-the-badge&logo=StyledComponent&logoColor=white">
-<img src="https://img.shields.io/badge/stomp-010101?style=for-the-badge&logo=stomp&logoColor=white">
-<img src="https://img.shields.io/badge/sockjs-010101?style=for-the-badge&logo=sockjs&logoColor=white">
-<img src="https://img.shields.io/badge/axios-5A29E4?style=for-the-badge&logo=sockjs&logoColor=white">
+<img src="https://user-images.githubusercontent.com/88928469/201078490-fed7cb7b-af3f-4c84-a63b-893490a4a38e.png">
 
 </br>
 
-------
-##  :rocket: 트러블 슈팅
+##   🧗‍♂️ CRUX
+
+클라이밍 유저들을 위한 모임, 정보 제공 커뮤니티 서비스입니다.
+
+<br>
+
+
+
+## 📺 시연 영상 
+
+<img src="https://user-images.githubusercontent.com/88928469/201088609-d9e8bafb-cb82-4c3d-aa5a-ec770e7fecb6.gif">
+
+#### [ -> CRUX 바로가기](https://youmadeit.shop/)
+
+<br />
+
+## 📅 프로젝트 기간
+
+> 2022.8.26 ~ 2022.10.07
+
+<br />
+
+
+## 🎮 주요기능
+
+- 소셜 로그인이 가능합니다
+- 크루원들끼리 실시간 채팅으로 소통 할 수 있습니다
+- 카카오Map을 통해 전국 클라이밍짐을 한눈에 볼 수 있습니다
+- SSE를 통해 실시간 알람을 받을 수 있습니다
+
+<br />
+
+## 🔗 바로가기
+- [Crux 이용하러 가기](https://youmadeit.shop/)
+- [프론트엔드 GitHub](https://github.com/Crux-TeamProject/FE)
+- [백엔드 GitHub](https://github.com/Crux-TeamProject/BE)
+- [팀 Notion](https://www.notion.so/6-b8b446f2809c49148f9be2cd678fe538)
+- [API 명세서](https://www.notion.so/API-e5a62aa1845b47a5bc8c8dd10dbc22ac)
+
+<br />
+
+## 🔧 기술스택
+ <br>
+<div align=center>
+
+  <img src="https://img.shields.io/badge/React-60d3f3?style=for-the-badge&logo=react&logoColor=black">
+ <img src="https://img.shields.io/badge/styledcomponents-DB7093?style=for-the-badge&logo=styled-components&logoColor=white">
+  <img src="https://img.shields.io/badge/ReduxToolkit-764ABC?style=for-the-badge&logo=Redux&logoColor=white"> 
+  <img src="https://img.shields.io/badge/Axios-5B0BB5?style=for-the-badge&logo=Axios&logoColor=white">
+  
+  <br>
+
+  
+<img src="https://img.shields.io/badge/SockJs-02B78F?style=for-the-badge&logo=SockJs&logoColor=white">
+<img src="https://img.shields.io/badge/Stomp-4A86CF?style=for-the-badge&logo=Stomp&logoColor=white">
+   <img src="https://img.shields.io/badge/sse-010101?style=for-the-badge&logo=stomp&logoColor=white">
+  <br>
+
+ 
+  <img src="https://img.shields.io/badge/AWS%20S3-232F3E?style=for-the-badge&logo=AmazonAWS&logoColor=FF9A00"/>
+  <img src="https://img.shields.io/badge/AWS%20CloudFront-232F3E?style=for-the-badge&logo=AmazonAWS&logoColor=FF9A00"/>
+  <img src="https://img.shields.io/badge/AWS%20Route%2053-232F3E?style=for-the-badge&logo=AmazonAWS&logoColor=FF9A00"/>
+ 
+  <br>
+  <img src="https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white">
+  <img src="https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white">
+  <img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white">
+</div>
+  
+<br />
+
+## 🕹 서비스 아키텍쳐  
+<img src="https://user-images.githubusercontent.com/109011766/194456262-69a3f74a-4772-4bf7-9e4f-1b667bae8567.png" width="800px"/>
+
+<br />
+
+## ⚠️ Trouble Shooting
+
 <details>
 <summary>SSE (Server-Sent Events) Message를 여러번 수신하는 문제 발생</summary>
 
@@ -99,8 +103,8 @@ ref기반의 react-hook-from 라이브러리를 사용하여 사용자가 트리
 
 </br>
 
-------
-##  :rocket: 유저 피드백
+
+## 🙆‍ 유저피드백
 
 <br>
 
@@ -112,12 +116,38 @@ ref기반의 react-hook-from 라이브러리를 사용하여 사용자가 트리
 * 간편한 모임 가입과 유저 간 연결
 * 깔끔한 디자인/UI
 
-< 개선사항 >
-* 사진 업로드가 안돼요 </br>
-▷ Firebase로 업로드 되는 시간 사이에 사진을 등록하여 사진 업로드가 안되는 문제로 사진이 업로드되는 동안 loading spiner처리
+<br />
+
+< 유저 피드백 개선사항 >
+
+<details>
+<summary>사진 업로드가 안돼요</summary>
+ Firebase로 업로드 되는 시간 사이에 사진을 등록하여 사진 업로드가 안되는 문제로 사진이 업로드되는 동안 loading spiner처리
+</details>
+
+<br />
+
+<!-- <details> -->
+<summary>채팅 관련 문의</summary>
+
 </br>
 
-* 채팅은 어떻게 할 수 있나요? </br>
-▷ 처음 가입한 사용자의 경우 가입한 크루가 없어 채팅기능의 인식 저하, 안내 문구를 추가하여 크루 가입 장려 </br>
+ > 채팅은 어떻게 할 수 있나요? </br>
+ - 처음 가입한 사용자의 경우 가입한 크루가 없어 채팅기능의 인식 저하, 안내 문구를 추가하여 크루 가입 장려 
+ ![image](https://user-images.githubusercontent.com/88928469/201099305-3378c11a-70c3-476d-86d9-1326c6b352f9.png)
+ > 제 채팅과 상대 채팅이 구분이 잘 안가요!
+ - 본인 채팅 아래와 같이 구분하여 해결
+ ![image](https://user-images.githubusercontent.com/88928469/201099737-8e9d35cc-7b62-4fcf-ac16-0a4dee65bc42.png)
+<!-- </details> -->
 
+<br />
 
+##  💁‍♀️🙋‍♂️팀원(FE)
+
+|팀원 |깃허브|역할분담|
+|---|---|---|
+|이용규🔰&nbsp;|[Github](https://github.com/chipmunkcol)&nbsp;| 카카오Map, 실시간 알람, 메인/크루/클라이밍짐/리뷰/마이 페이지,  |
+|임효림|[Github](https://github.com/01192mg)|소셜로그인, 회원가입, 실시간 채팅, 크루 생성 및 크루 디테일(소개/참여멤버/모임공지/사진첩) 페이지|
+
+<br>
+<br>
