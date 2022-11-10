@@ -150,7 +150,7 @@ ref기반의 react-hook-from 라이브러리를 사용하여 사용자가 트리
 
 |팀원 |깃허브|역할분담|
 |---|---|---|
-|이용규🔰&nbsp;|[Github](https://github.com/chipmunkcol)&nbsp;| 카카오Map, 실시간 알람, 메인/크루/클라이밍짐/리뷰/마이 페이지,  |
+|이용규🔰&nbsp;|[Github](https://github.com/chipmunkcol)&nbsp;| 카카오Map, 실시간 알람, 메인/크루/클라이밍짐/리뷰/마이 페이지  |
 |임효림|[Github](https://github.com/01192mg)|소셜로그인, 회원가입, 실시간 채팅, 크루 생성 및 크루 디테일(소개/참여멤버/모임공지/사진첩) 페이지|
 
 <br>
