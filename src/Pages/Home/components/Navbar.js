@@ -45,6 +45,7 @@ const Navbar = () => {
      localStorage.removeItem("userInfo")
      alert('로그아웃 되었습니다.')
      navigate('/')
+     window.location.reload();
   }
 
   const navigate = useNavigate();
@@ -89,7 +90,7 @@ useEffect(()=>{
     {headers: {Authorization: userToken}  })
     
     sse.onopen = e => {
-      console.log("연결완료")
+      // console.log("연결완료")
     }
 
     sse.addEventListener('sse', e => {
