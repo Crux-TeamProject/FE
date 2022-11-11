@@ -11,7 +11,7 @@
 
 
 
-## 📺 시연 영상 [프레젠테이션 영상](https://www.youtube.com/watch?v=DWAgb-X79Ok&t=16s)
+## 📺 시연 영상 [프레젠테이션 영상보기](https://www.youtube.com/watch?v=DWAgb-X79Ok&t=16s)
 
 <img src="https://user-images.githubusercontent.com/88928469/201088609-d9e8bafb-cb82-4c3d-aa5a-ec770e7fecb6.gif">
 
