@@ -31,8 +31,7 @@
 - 소셜 로그인이 가능합니다
 - 크루원들끼리 실시간 채팅으로 소통 할 수 있습니다
 - SSE를 통해 실시간 알람을 받을 수 있습니다
-- 카카오Map을 통해 전국 클라이밍짐을 한눈에 볼 수 있습니다 (
-[시연영상](https://www.youtube.com/watch?v=UJhx60YTabw), 
+- 카카오Map을 통해 전국 클라이밍짐을 한눈에 볼 수 있습니다 ([시연영상](https://www.youtube.com/watch?v=UJhx60YTabw), 
 [Git코드](https://github.com/Crux-TeamProject/FE/blob/master/src/Pages/GymPage/Gym.jsx))
 
 <br />
@@ -152,8 +151,8 @@ ref기반의 react-hook-from 라이브러리를 사용하여 사용자가 트리
 
 |팀원 |깃허브|역할분담|
 |---|---|---|
-|이용규🔰&nbsp;|[Github](https://github.com/chipmunkcol)&nbsp;| 카카오Map, 실시간 알람, 메인/크루/클라이밍짐/리뷰/마이 페이지  |
-|임효림|[Github](https://github.com/01192mg)|소셜로그인, 회원가입, 실시간 채팅, 크루 생성 및 크루 디테일(소개/참여멤버/모임공지/사진첩) 페이지|
+|이용규🔰|[Github](https://github.com/chipmunkcol)&nbsp;| 카카오Map, 실시간 알람, 메인/크루/클라이밍짐/리뷰/마이 페이지  |
+|임효림|[Github](https://github.com/hyolimlim)|소셜로그인, 회원가입, 실시간 채팅, 크루 생성 및 크루 디테일(소개/참여멤버/모임공지/사진첩) 페이지|
 
 <br>
 <br>
