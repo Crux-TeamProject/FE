@@ -11,7 +11,7 @@
 
 
 
-## 📺 시연 영상 
+## 📺 시연 영상 [프레젠테이션 영상](https://www.youtube.com/watch?v=DWAgb-X79Ok&t=16s)
 
 <img src="https://user-images.githubusercontent.com/88928469/201088609-d9e8bafb-cb82-4c3d-aa5a-ec770e7fecb6.gif">
 
@@ -30,8 +30,10 @@
 
 - 소셜 로그인이 가능합니다
 - 크루원들끼리 실시간 채팅으로 소통 할 수 있습니다
-- 카카오Map을 통해 전국 클라이밍짐을 한눈에 볼 수 있습니다
 - SSE를 통해 실시간 알람을 받을 수 있습니다
+- 카카오Map을 통해 전국 클라이밍짐을 한눈에 볼 수 있습니다 (
+[시연영상](https://www.youtube.com/watch?v=UJhx60YTabw), 
+[Git코드](https://github.com/Crux-TeamProject/FE/blob/master/src/Pages/GymPage/Gym.jsx))
 
 <br />
 
