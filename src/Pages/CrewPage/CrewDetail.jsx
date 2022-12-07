@@ -32,11 +32,11 @@ const CrewDetail = () => {
   useEffect(() => {
     dispatch(getCrewDetail(params));
     window.scrollTo(0, 0);
-  }, [params]);
+  }, [params, dispatch]);
 
   const crewDetail = useSelector((state) => state?.crews?.crewDetail);
   const crew = crewDetail?.data;
-  // console.log(crew);
+  // console.log(crewDetail);
 
   //호스트 확인
   const hostId = crew?.hostId;
@@ -52,17 +52,12 @@ const CrewDetail = () => {
   async function onCrewDelte() {
     if (window.confirm("크루를 삭제하시겠습니까?")) {
       try {
-        const response = await axios
-          .delete(`https://sparta-tim.shop/crews/${params}`, {
-            headers: {
-              Authorization: JSON.parse(window.localStorage.getItem("userInfo")).access_token,
-            },
-          })
+        const response = await DeleteAxios(`crews/${params}`)
           .then((response) => {
             // console.log(response);
+            window.alert("삭제 완료");
+            window.location.replace("/crews");
           });
-        window.alert("삭제 완료");
-        window.location.replace("/crews");
         return response.data;
       } catch (error) {
         return error.data;
@@ -92,17 +87,11 @@ const CrewDetail = () => {
   //크루 가입 신청
   async function joinCrews() {
     try {
-      const response = await axios.post(
-        `https://sparta-tim.shop/crews/${params}/members`,
-        null,
-        {
-          headers: {
-            Authorization: JSON.parse(window.localStorage.getItem("userInfo")).access_token,
-          },
-        }
-      );
-      dispatch(_joinCrew(true));
-      window.alert("신청되었습니다.");
+      const response = await PostAxios(`crews/${params}/members`, null)
+      .then(()=>{
+        dispatch(_joinCrew(true));
+        window.alert("신청되었습니다.");
+      })
       return response.data;
     } catch (error) {
       return error.data;
@@ -110,17 +99,11 @@ const CrewDetail = () => {
   }
   async function joinCancelCrews() {
     try {
-      const response = await axios.post(
-        `https://sparta-tim.shop/crews/${params}/members`,
-        null,
-        {
-          headers: {
-            Authorization: JSON.parse(window.localStorage.getItem("userInfo")).access_token,
-          },
-        }
-      );
-      dispatch(_joinCancelCrew(false));
-      window.alert("신청 취소되었습니다.");
+      const response = await PostAxios(`crews/${params}/members`, null)
+      .then(()=>{
+        dispatch(_joinCancelCrew(false));
+        window.alert("신청 취소되었습니다.");
+      })
       return response.data;
     } catch (error) {
       return error.data;
@@ -131,17 +114,12 @@ const CrewDetail = () => {
   async function withdrawCrew() {
     if (window.confirm("탈퇴하시겠습니까?")) {
       try {
-        const response = await axios
-          .delete(`https://sparta-tim.shop/crews/${params}/members`, {
-            headers: {
-              Authorization: JSON.parse(window.localStorage.getItem("userInfo")).access_token,
-            },
-          })
+        const response = await DeleteAxios(`crews/${params}/members`)
           .then((response) => {
             // console.log(response);
+            window.alert("탈퇴 완료");
+            window.location.reload();
           });
-        window.alert("탈퇴 완료");
-        window.location.reload();
         return response.data;
       } catch (error) {
         return error.data;

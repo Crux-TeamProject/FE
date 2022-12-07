@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { __getAlam, _readAlam, _deleteAlam, _deleteAlams, _minusAlam } from "../Redux/modules/notification";
 import axios from "axios";
+import { DeleteAxios, GetAxios, PostAxios } from "./api/main";
 
 
 const Alam = ({setShowAlam, alams, NreadAlams}) => {
@@ -46,9 +47,8 @@ const onclickDeleteAlams = () => {
 }
 
 const readAlam = async (notificationId) => {
-  await axios.post(`${BASE_URL}/notifications/${notificationId}`, null,
-          { headers: {Authorization: JSON.parse(window.localStorage.getItem("userInfo")).access_token }})
-    .then((res) => {
+  await PostAxios(`notifications/${notificationId}`, null)
+  .then((res) => {
       // console.log(res)
     })
     .catch((err) => {
@@ -56,9 +56,8 @@ const readAlam = async (notificationId) => {
     }) 
 }
 const deleteAlam = async (notificationId) => {
-  await axios.delete(`${BASE_URL}/notifications/${notificationId}`,
-          { headers: {Authorization: JSON.parse(window.localStorage.getItem("userInfo")).access_token}})
-    .then((res) => {
+  await DeleteAxios(`notifications/${notificationId}`)
+  .then((res) => {
       // console.log(res)
     })
     .catch((err) => {
@@ -66,8 +65,7 @@ const deleteAlam = async (notificationId) => {
     }) 
 }
 const deleteAlams = async () => {
-  await axios.delete(`${BASE_URL}/notifications`,
-          { headers: {Authorization: JSON.parse(window.localStorage.getItem("userInfo")).access_token}})
+  await DeleteAxios(`notifications`)
     .then((res) => {
       // console.log(res)
     })
@@ -98,15 +96,15 @@ const deleteAlams = async () => {
                             alams?.data.map((alam) => {
                           return (
                             <div key={alam.id}>
-                              {!alam.status ? 
-                                (<AlamList onClick={()=>{ onclickReadAlam(alam.id); navigate(`/crews/${alam.content.crewId}`); window.location.reload()}}>
+                              {!alam.status ?  // 안 읽은 알람
+                                (<AlamList onClick={()=>{ onclickReadAlam(alam.id); navigate(`/crews/${alam.content.crewId}`) }}>
                                   <AlamContent >
                                     <span >{alam.content.content}</span> 
                                     <AlamDelete onClick={(e)=>{e.stopPropagation(); onclickDeleteAlam(alam.id)}}>삭제</AlamDelete> 
                                   </AlamContent>
                                 </AlamList>)
-                              :
-                                (<AlamList onClick={()=>{ navigate(`/crews/${alam.content.crewId}`); window.location.reload()}}>
+                              :                // 읽은 알람
+                                (<AlamList onClick={()=>{ navigate(`/crews/${alam.content.crewId}`) }}>
                                   <ReadAlamContent >
                                     <span >{alam.content.content}</span>
                                     <AlamDelete onClick={(e)=>{e.stopPropagation(); onclickDeleteAlam(alam.id); }}>삭제</AlamDelete> 

@@ -11,10 +11,10 @@ import { useCallback } from "react";
 import axios from "axios";
 import Loading from "../components/ReviewLoading"
 import { ReactComponent as ImgUploadIcon } from "../../../Image/imgUploadBox.svg";
+import { PutAxios } from '../../../Shared/api/main';
 
 
 function EditModalReview({ setEditModal, reviewId, gym, reload, setReload }) {
-    const BASE_URL = "https://sparta-tim.shop";
 
     // console.log(reviewId)
     const a = gym.reviews.findIndex((v) => v.id === Number(reviewId))
@@ -93,9 +93,7 @@ function EditModalReview({ setEditModal, reviewId, gym, reload, setReload }) {
                 reviewPhotoList: imgProductList.length !== 0 ? imgProductList 
                                  : [{ imgUrl: "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbtOY6e%2FbtrMC0zJgaN%2FE8MiRTJ9nXjXvMPO5q1gQK%2Fimg.jpg" }],
             };
-            await axios.put(`${BASE_URL}/reviews/${reviewId}`, payload, {
-                headers: { Authorization: JSON.parse(window.localStorage.getItem("userInfo")).access_token }
-            })
+            await PutAxios(`reviews/${reviewId}`, payload)
                 .then((res) => {
                     // console.log(res.data)
                     alert('리뷰 수정완료!');

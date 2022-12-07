@@ -11,10 +11,11 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import 노랑별 from "../../../Image/노랑별.png"
 import 검은별 from "../../../Image/검은별.png"
+import { DeleteAxios } from "../../../Shared/api/main";
 
 
 const Review = ({gym, reload, setReload}) => {
-const BASE_URL = "https://sparta-tim.shop";
+    
 const navigate = useNavigate()
 const [editModal, setEditModal] = useState(false)
 const [reviewId, setReviewId] = useState('')
@@ -37,9 +38,8 @@ const onclickDelReview = (reviewId) => {
 }
 
 const delReview = async (reviewId) => {
-    await axios.delete(`${BASE_URL}/reviews/${reviewId}`,
-        { headers: {Authorization: JSON.parse(window.localStorage.getItem("userInfo")).access_token }})
-      .then((res) => {
+    await DeleteAxios(`reviews/${reviewId}`)
+    .then((res) => {
         setReload(!reload)
       })
       .catch((err) => {

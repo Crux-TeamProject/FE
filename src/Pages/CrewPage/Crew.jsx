@@ -10,11 +10,10 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import PopularCrew from "./components/PopularCrew.js";
 import NewCrew from "./components/NewCrew.js";
 import Footer from "../../Shared/Footer.js";
+import { GetAxios } from "../../Shared/api/main.js";
 
 
 const Crew = () => {
-  const BASE_URL = "https://sparta-tim.shop";
-  // const BASE_URL = "http://54.180.31.108";
 
   const [choicePopularCrew, setChoicePopularCrew] = useState(true);
 
@@ -36,9 +35,8 @@ const Crew = () => {
     searchCrew();
   };
 
-  const searchCrew = useCallback(async () => {
-    await axios
-      .get(`${BASE_URL}/crews/search?query=${search}`)
+  const searchCrew = useCallback(() => {
+    GetAxios(`crews/search?query=${search}`)
       .then((res) => {
         setSearchData(res.data.data);
         setSearch("");
@@ -46,7 +44,7 @@ const Crew = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, [onclickSearchCrew]);
+  }, [search]);
 
   return (
     <CrewContainer>

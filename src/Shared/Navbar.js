@@ -14,6 +14,7 @@ import { EventSourcePolyfill, NativeEventSource } from 'event-source-polyfill';
 import { __getAlam, _readAlam, _addAlam, _deleteAlam, _deleteAlams, __NreadAlam, _minusAlam, _plusAlam } from "../Redux/modules/notification";
 import { __getMyPage } from "../Redux/modules/mypageSlice";
 import NavbarDropdown from "./NavbarDropdown";
+import { request } from "./api/core";
 
 
 const Navbar = () => {
@@ -85,10 +86,14 @@ const Navbar = () => {
 const EventSource = EventSourcePolyfill || NativeEventSource;  //eventsource 쓰려면 import 해야됨!
 
 let sse = undefined;
+const [listen, setListen] = useState(false)
 useEffect(()=>{
-  if (userToken) {
-    sse = new EventSource(`https://sparta-tim.shop/subscribe`,   //구독
-    {headers: {Authorization: userToken}  })
+const token = window.localStorage?.getItem("userInfo")
+  if (token) {
+    sse = new EventSource(
+      // request(`subscribe`))
+      'http://54.180.106.211/subscribe',   //구독
+    {headers: {Authorization: JSON.parse(token).access_token}  })
     
     sse.onopen = e => {
       // console.log("연결완료")
@@ -103,15 +108,18 @@ useEffect(()=>{
     )
 
     sse.onerror = e => {
-      // console.log(e)
+      // console.log('강제종료')
+      sse.close()
+      setListen(!listen)
     };
   }
   return () => {
-    if(userToken) {
+    if(token) {
+      // console.log('종료')
       sse.close();
     }
   }
-}, [userToken])
+}, [listen])
 
 useEffect(()=>{
   if(realtimeAlam.length !== 0) {
@@ -141,7 +149,11 @@ const profileImg = JSON.parse(window?.localStorage?.getItem('userInfo'))?.profil
         <NavCrew type="button" onClick={() => {navigate("/crews")}}>
           크루 모임
         </NavCrew>
-        <NavCreateCrew type="button" onClick={() => {navigate("/createcrew")}}> 
+        <NavCreateCrew type="button" onClick={() => {
+          if (userInfo) {
+            navigate("/createcrew")
+          } else { alert('로그인 사용자만 이용 가능합니다') }
+          }}>  
           크루 생성
         </NavCreateCrew>
         <NavGym type="button" onClick={() => {navigate("/gyms")}}>

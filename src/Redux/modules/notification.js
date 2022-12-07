@@ -1,18 +1,13 @@
 import { createSlice, createAsyncThunk, current } from "@reduxjs/toolkit";
 import axios from 'axios';
-import { bool } from "yup";
-
-const BASE_URL = 'https://sparta-tim.shop'
-// const BASE_URL = 'https://01192mg.shop'
+import { GetAxios } from "../../Shared/api/main";
 
 
 export const __getAlam = createAsyncThunk(
     'getAlam',
     async (payload, thunkAPI) => {
         try {
-            const data = await axios.get(`${BASE_URL}/notifications`,
-            { headers: {Authorization: JSON.parse(window.localStorage.getItem("userInfo")).access_token }})
-            // console.log(data.data)
+            const data = await GetAxios(`notifications`)
             return thunkAPI.fulfillWithValue(data.data)
         } catch (error) {
             return thunkAPI.rejectWithValue(error)
@@ -76,9 +71,7 @@ export const __NreadAlam = createAsyncThunk(
     'NreadAlam',
     async (payload, thunkAPI) => {
         try {
-            const data = await axios.get(`${BASE_URL}/notifications/count`,
-            { headers: {Authorization: JSON.parse(window.localStorage.getItem("userInfo")).access_token }})
-            // console.log(data.data)
+            const data = await GetAxios(`notifications/count`)
             return thunkAPI.fulfillWithValue(data.data)
         } catch (error) {
             return thunkAPI.rejectWithValue(error)

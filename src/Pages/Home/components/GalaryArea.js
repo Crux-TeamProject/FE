@@ -6,23 +6,11 @@ import Loading from "../../../Shared/Loading";
 import { GetAxios } from "../../../Shared/api/main";
 
 const GalaryArea = () => {
-const BASE_URL = "https://sparta-tim.shop";
+    
 const navigate = useNavigate()
 
 const [galarys, setGalarys] = useState([]) 
 // console.log(galarys)
-
-
-// const getGalarys = async () => {
-//     await axios.get(`${BASE_URL}/crews/posts?page=0&size=6`)
-//         .then((res) => {
-//             // console.log(res.data.data)
-//             setGalarys((prev) => [...prev, ...res.data.data]);
-//         })
-//         .catch((err) => {
-//         // console.log(err);
-//         }) 
-// }
 
 const getGalarys = () => {
     GetAxios(`crews/posts?page=0&size=6`)

@@ -10,10 +10,10 @@ import { useState } from "react";
 import EditMypage from "./components/EditMypage";
 import Footer from "../../Shared/Footer";
 import axios from "axios";
+import { DeleteAxios } from "../../Shared/api/main";
 
 
 const Mypage = () => {
-const BASE_URL = "https://sparta-tim.shop";
 const dispatch = useDispatch()
 const navigate = useNavigate()
 
@@ -25,7 +25,7 @@ const userId = JSON.parse(window?.localStorage?.getItem("userInfo"))?.userId
 const {isLoading, error, mypage} = useSelector((state)=>state.myPage)
 // console.log(isLoading, error, mypage)
 const myPage = mypage?.data
-console.log(myPage)
+// console.log(myPage)
 
 const params = Number(useParams().memberId)
 // console.log(params)
@@ -36,13 +36,12 @@ const [reload, setReload] = useState(false)
 
 useEffect(()=>{
     dispatch(__getMyPage(params));
-},[reload])
+},[dispatch, params, reload])
 
 //회원 탈퇴
 const deleteId = async() => {
     if(window.confirm("정말 탈퇴하시겠어요?")) {
-        await axios.delete(`${BASE_URL}/members/withdraw`, 
-        {headers: {Authorization: JSON.parse(window.localStorage.getItem("userInfo")).access_token}})
+        await DeleteAxios(`members/withdraw`)
         .then((res) => {
             // console.log(res)
             alert(res.data.data)

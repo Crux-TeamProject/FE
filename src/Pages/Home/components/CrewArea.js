@@ -9,8 +9,6 @@ import { GetAxios } from "../../../Shared/api/main";
 
 const CrewArea = () => {
 
-const BASE_URL = "https://sparta-tim.shop";
-// const BASE_URL = "54.180.106.211";
 
 const dispatch = useDispatch()
 const [showNewCrew, setShowNewCrew] = useState(false)    
@@ -23,16 +21,6 @@ const crews = getCrew?.data?.content
 
 const [newCrews, setNewCrews] = useState([]) 
 // console.log(crews)
-
-// const getNewCrew = async () => {
-//     await axios.get(`${BASE_URL}/crews?page=0&size=4`)
-//       .then((res) => {
-//         setNewCrews((prev) => [...prev, ...res.data.data.content]);
-//       })
-//       .catch((err) => {
-//         console.log(err);
-//       }) 
-// }
 
 const getNewCrew = () => {
     GetAxios(`crews?page=0&size=4`)
