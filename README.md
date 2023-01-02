@@ -123,6 +123,28 @@ ref기반의 react-hook-from 라이브러리를 사용하여 사용자가 트리
 < 유저 피드백 개선사항 >
 
 <details>
+ <summary>슬라이더가 마우스로 넘어갔으면 좋겠어요!</summary>
+ 
+ </br>
+ 
+ - navigation을 바로가기 클릭시로 변경하고 keyframe으로 바로가기를 한눈에 볼 수 있게 처리 </br>
+   (기존에는 navigateion을 전체사진에 설정해 마우스로 슬라이더 하면 mouseUp 시에 해당 navi로 이동)
+ ![ezgif com-gif-maker](https://user-images.githubusercontent.com/88928469/210228710-1bfd67c2-3c49-4998-a90c-7d86c8ba07fe.gif)
+</details>
+
+<details>
+ <summary> Top 버튼 채팅 버튼 위치가 거슬려요.. </summary>
+ 
+ </br>
+ 
+ - 유저에 따라 버튼 위치를 커스텀 하는게 좋겠다고 판단하여 drabble 도입하여 해결하였음 </br>
+ ![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/88928469/210230785-148381b4-8487-4fbe-a05f-6e5ba2cac48f.gif)
+
+ 
+</details>
+
+<details>
+
 <summary>사진 업로드가 안돼요</summary>
 
 </br>
@@ -137,11 +159,14 @@ ref기반의 react-hook-from 라이브러리를 사용하여 사용자가 트리
 
 </br>
 
- > 채팅은 어떻게 할 수 있나요? </br>
+ > 채팅은 어떻게 할 수 있나요?
  - 처음 가입한 사용자의 경우 가입한 크루가 없어 채팅기능의 인식 저하, 안내 문구를 추가하여 크루 가입 장려 
+ 
  ![image](https://user-images.githubusercontent.com/88928469/201099305-3378c11a-70c3-476d-86d9-1326c6b352f9.png)
+ 
  > 제 채팅과 상대 채팅이 구분이 잘 안가요!
  - 본인 채팅 아래와 같이 구분하여 해결
+ 
  ![image](https://user-images.githubusercontent.com/88928469/201099737-8e9d35cc-7b62-4fcf-ac16-0a4dee65bc42.png)
 </details>
 
