@@ -1,6 +1,3 @@
-<img src="https://user-images.githubusercontent.com/88928469/201078490-fed7cb7b-af3f-4c84-a63b-893490a4a38e.png">
-
-</br>
 
 ##   🧗‍♂️ CRUX
 
