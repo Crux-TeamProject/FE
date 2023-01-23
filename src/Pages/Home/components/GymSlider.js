@@ -5,7 +5,6 @@ import styled, { keyframes } from "styled-components";
 import 슬라이더왼쪽버튼 from "../../../Image/btn_left.png"
 import 슬라이더오른쪽버튼 from "../../../Image/btn_right.png"
 import 기본클라이밍짐 from "../../../Image/인기 클라이밍짐.png"
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const SliderGym = ({ gyms }) => {
