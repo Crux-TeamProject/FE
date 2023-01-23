@@ -16,7 +16,7 @@ function ChatList({ onClose }) {
     dispatch(getChatRoom());
   }, []);
   const chatRoomList = useSelector((state) => state?.chat?.chatRoom?.data);
-  console.log(chatRoomList)
+  // console.log(chatRoomList)
   //채팅방 들어가기
   const [isVisible, setIsVisible] = useState(true);
   const handleChange = () => {
