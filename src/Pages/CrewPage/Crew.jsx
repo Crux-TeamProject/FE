@@ -48,7 +48,6 @@ const Crew = () => {
 
   return (
     <CrewContainer>
-      <Navbar />
 
       <HeaderWrap>
         <h1

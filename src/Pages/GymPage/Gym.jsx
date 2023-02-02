@@ -4,8 +4,6 @@ import { useEffect, useRef, useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Loading from "../../Shared/Loading.js"
 import { useNavigate } from 'react-router-dom';
-import Navbar from '../../Shared/Navbar';
-import axios from 'axios';
 import { Map, MapMarker, CustomOverlayMap } from 'react-kakao-maps-sdk'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import { faL, faMagnifyingGlass, faPlus } from '@fortawesome/free-solid-svg-icons';
@@ -299,8 +297,6 @@ const Gym = () => {
     return (
         <div>
 
-            <Navbar />
-
             <div style={{width:'192rem', height:'33.5rem', padding:'8rem 0 0 0', backgroundColor:'#141414', color:'#ffffff'}}>
               
               <div style={{width:'120rem', margin:'0 auto 0 auto'}}>
@@ -342,9 +338,10 @@ const Gym = () => {
 
                     {
                         gyms?.map((val, i) => ( 
-                          <>
+                          <div
+                          key={`${val.name}-${val.lat}`}
+                          >
                             <MapMarker onClick={()=>setIsopen(!isopen)}
-                            key={`${val.name}-${val.lat}`}
                             position={{
                                 lat: val.lat,
                                 lng: val.lon
@@ -376,7 +373,7 @@ const Gym = () => {
                             </CustomOverlayMap>
                             )}
 
-                          </>
+                          </div>
                         ))
                     }
                     

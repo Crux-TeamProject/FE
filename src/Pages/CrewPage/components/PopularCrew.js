@@ -4,6 +4,7 @@ import axios from "axios";
 import { useState, useEffect, useRef, useCallback } from "react";
 import React from "react";
 import { GetAxios } from "../../../Shared/api/main";
+import Loading from "../../../Shared/Loading";
 
 const PopularCrew = ({searchData}) => {
   
@@ -14,26 +15,23 @@ const PopularCrew = ({searchData}) => {
   
     // 무한스크롤 적용하기
       const [page, setPage] = useState(0); //현재 페이지
-      // console.log(page)
+      console.log(page)
       const obsRef = useRef(null); 	//observer Element
-      // console.log(obsRef)
-      const preventRef = useRef(true); //옵저버 중복 실행 방지
+      const preventRef = useRef(false); //옵저버 중복 실행 방지
       const endRef = useRef(false); //모든 글 로드 확인
   
       useEffect(()=> { //옵저버 생성
         const observer = new IntersectionObserver(obsHandler, { threshold : 0.8 });
         if(obsRef.current) observer.observe(obsRef.current);
-        return () => { observer.disconnect(); }
+        return () => { observer.disconnect(); preventRef.current = true}
       }, [])
     
       const obsHandler = ((entries) => { //옵저버 콜백함수
         const target = entries[0];
         if(!endRef.current && target.isIntersecting && preventRef.current ){ //옵저버 중복 실행 방지
           preventRef.current = false; //옵저버 중복 실행 방지
-          setTimeout(() => {
-            setPage(prev => prev+1 ); //페이지 값 증가
-          }, 0);
-              
+           
+          setPage(prev => prev+1 ); //페이지 값 증가
         }
     })
 
@@ -44,11 +42,10 @@ const PopularCrew = ({searchData}) => {
               endRef.current = true
             }
             setList((prev) => [...prev, ...res.data.data.content]);
-            
             preventRef.current = true;
           })
           .catch((err) => {
-            // console.log(err);
+            console.log(err);
           }) 
       }, [page])
       
@@ -56,8 +53,12 @@ const PopularCrew = ({searchData}) => {
         getCrew();
     }, [page])
 
+// if (list?.length === 0 && searchData?.length === 0) { 
+//   return (<Loading />) 
+// }
+
 return (
-    <Container >
+    <Container>
         <Wrap>
         {
             searchData?.length !== 0 ? 
@@ -120,8 +121,9 @@ return (
 
         }
                         
-            <div ref={obsRef} ></div>
+          <div ref={obsRef} ></div>
         </Wrap>
+        
       </Container>
     )
 }
@@ -131,6 +133,7 @@ const Container = styled.div`
   width: 192rem;
   background-color: #141414;
   color: #999999;
+  min-height: 100vh;
 `;
 
 const Wrap = styled.div`

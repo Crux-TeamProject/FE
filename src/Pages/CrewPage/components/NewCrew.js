@@ -20,13 +20,13 @@ const PopularCrew = ({searchData}) => {
       const obsRef = useRef(null); 	//observer Element
   
       const [load, setLoad] = useState(false); //로딩 스피너
-      const preventRef = useRef(true); //옵저버 중복 실행 방지
+      const preventRef = useRef(false); //옵저버 중복 실행 방지
       const endRef = useRef(false); //모든 글 로드 확인
   
       useEffect(()=> { //옵저버 생성
         const observer = new IntersectionObserver(obsHandler, { threshold : 0.8 });
         if(obsRef.current) observer.observe(obsRef.current);
-        return () => { observer.disconnect(); }
+        return () => { observer.disconnect(); preventRef.current = true}
       }, [])
   
       useEffect(()=> {

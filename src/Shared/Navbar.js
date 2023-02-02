@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import 알람종 from "../Image/알람종.png"
 import 사용자이미지 from "../Image/사용자기본이미지.jpg"
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import ModalPortal from "../Pages/Login/MordalPortal";
 import LoginModal from "../Pages/Login/LoginModal";
@@ -18,6 +18,8 @@ import { request } from "./api/core";
 
 
 const Navbar = () => {
+  const location = useLocation()
+  const homeLocation = location?.pathname
 
   const [userInfo, setUserInfo] = useState()
   const userToken = userInfo?.access_token
@@ -136,7 +138,7 @@ const profileImg = JSON.parse(window?.localStorage?.getItem('userInfo'))?.profil
 
 
   return (
-    <NavContainer>
+    <NavContainer homeLocation={homeLocation}> 
       <ModalPortal>
         {loginVisible && <LoginModal onClose={handleLoginModal} />}
         {registerVisible && <Legister onClose={handleRegisterModal} setLoginVisible={setLoginVisible}/>}
@@ -203,11 +205,11 @@ const NavContainer = styled.div`
   display: flex;
   color: #ffffff;
   z-index: 3;
-  /* position: absolute; */
+  position: ${props => props.homeLocation === '/' ? "absolute" : "null"};
   padding: 0 0 4.2rem 0;
   margin: 0;
   width: 192rem;
-  background-color: #000000;
+  background-color: ${props => props.homeLocation === '/' ? "transparent" : "#000000"};
 `;
 
 const NavContent = styled.div`

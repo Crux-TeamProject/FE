@@ -36,8 +36,6 @@ return(
 )
     return(
         <div style={{width:'192rem', height:'100rem'}}>
-            
-            <Navbar />
 
     {/* content 영역 입니다 */}
             <Content gym={gym} setShowReview={setShowReview} showReview={showReview} setReload={setReload} reload={reload}/>

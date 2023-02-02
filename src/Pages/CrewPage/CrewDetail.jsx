@@ -208,7 +208,6 @@ const CrewDetail = () => {
   }
   return (
     <div>
-      <Navbar />
       <Warp>
         {applicationModalVisible && (
           <ApplicationListModal onClose={handleMadalClick} />
