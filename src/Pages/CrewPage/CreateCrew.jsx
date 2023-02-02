@@ -3,7 +3,6 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { useForm, Controller } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
-import Navbar from "../../Shared/Navbar";
 import { storage } from "../../Shared/firebase";
 import { createCrew } from "../../Redux/modules/crewSlice";
 import Select from "react-select";
@@ -270,7 +269,6 @@ const CreateCrew = () => {
 
   return (
     <div>
-      <Navbar />
       <Warp>
         <ThumbnailContainer onSubmit={handleSubmit(onSubmit)}>
           {isOpenPost && (

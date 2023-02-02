@@ -68,9 +68,6 @@ useEffect(()=>{
     return(
         <>
 
-
-            <Navbar />
-
             { 
             // isLoading === true ? <Loading /> : 
                     editMypage === true ? <EditMypage myPage={myPage} setEditMypage={setEditMypage} setReload={setReload} reload={reload}/> : (
