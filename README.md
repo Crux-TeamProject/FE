@@ -29,14 +29,6 @@
 
 <br />
 
-## 🔗 바로가기
-- [Crux 이용하러 가기](https://youmadeit.shop/)
-- [프론트엔드 GitHub](https://github.com/Crux-TeamProject/FE)
-- [백엔드 GitHub](https://github.com/Crux-TeamProject/BE)
-- [팀 Notion](https://www.notion.so/6-b8b446f2809c49148f9be2cd678fe538)
-- [API 명세서](https://www.notion.so/API-e5a62aa1845b47a5bc8c8dd10dbc22ac)
-
-<br />
 
 ## 🔧 기술스택
  <br>
@@ -181,3 +173,12 @@ ref기반의 react-hook-from 라이브러리를 사용하여 사용자가 트리
 |임효림|[Github](https://github.com/hyolimlim)|소셜로그인, 회원가입, 실시간 채팅, 크루 생성 및 크루 디테일(소개/참여멤버/모임공지/사진첩) 페이지|
 
 <br>
+
+## 🔗 바로가기
+- [Crux 이용하러 가기](https://youmadeit.shop/)
+- [프론트엔드 GitHub](https://github.com/Crux-TeamProject/FE)
+- [백엔드 GitHub](https://github.com/Crux-TeamProject/BE)
+- [팀 Notion](https://www.notion.so/6-b8b446f2809c49148f9be2cd678fe538)
+- [API 명세서](https://www.notion.so/API-e5a62aa1845b47a5bc8c8dd10dbc22ac)
+
+<br />
