@@ -129,14 +129,14 @@ return (
 }
 
 
-const Container = styled.div`
+export const Container = styled.div`
   width: 100%;
   background-color: #141414;
   color: #999999;
   min-height: 100vh;
 `;
 
-const Wrap = styled.div`
+export const Wrap = styled.div`
   display: grid;
   grid-template-columns: 41rem 41rem 39rem;
   justify-content: center;
@@ -145,7 +145,7 @@ const Wrap = styled.div`
   padding: 4rem 0 0 0;
 `;
 
-const CrewList = styled.div`
+export const CrewList = styled.div`
 width: 38rem;
 height: 49rem;
 margin: 2rem 1rem 0 0.4rem;
@@ -157,7 +157,7 @@ overflow: hidden;
   }
 cursor: pointer;
 `
-const HashWrap =styled.div`
+export const HashWrap =styled.div`
 display: flex;
 position: absolute;
 margin: 0 0 0 0;
@@ -166,10 +166,7 @@ font-size: 1.2rem;
 margin: 8rem 0 0 12rem;
 color: #999999;
 `
-
-const HashTag = styled.div`
-
-`
+export const HashTag = styled.div``
 
 
 export default PopularCrew;

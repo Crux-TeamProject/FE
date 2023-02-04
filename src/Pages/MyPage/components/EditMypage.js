@@ -1,22 +1,16 @@
-import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import {storage} from '../../../Shared/firebase'
-
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { storage } from '../../../Shared/firebase'
 import { useEffect, useState } from "react"
 import { useCallback } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import styled from "styled-components"
+import * as Styled from "../Mypage"
 import 사용자기본이미지 from "../../../Image/사용자기본이미지.jpg"
 import 프로필편집 from "../../../Image/프로필수정.png"
 import { useDispatch } from 'react-redux';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-
-import { faGear } from "@fortawesome/free-solid-svg-icons";
-import axios from "axios";
 import { PutAxios } from '../../../Shared/api/main';
 
 const EditMypage = ({ myPage, setEditMypage, setReload, reload }) => {
-  const BASE_URL = "https://sparta-tim.shop";
-  // const BASE_URL = "http://54.180.31.108";
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -105,10 +99,10 @@ const EditMypage = ({ myPage, setEditMypage, setReload, reload }) => {
 
     return(
         <>
-            <Container>
+            <Styled.Container>
                 
-                <Flex1>
-                    <ProfileImg src={fileUrl !== "" ? fileUrl : 사용자기본이미지 }/>
+                <Styled.Flex1>
+                    <Styled.ProfileImg src={fileUrl !== "" ? fileUrl : 사용자기본이미지 }/>
                     
                                 <label htmlFor="upload-photo">
                                     <input
@@ -125,17 +119,17 @@ const EditMypage = ({ myPage, setEditMypage, setReload, reload }) => {
                                 </label>
 
 
-                    <ProfileNickname value={editNickname} onChange={(e)=>{setEditNickname(e.target.value)}}/>
+                    <Styled.ProfileNickname value={editNickname} onChange={(e)=>{setEditNickname(e.target.value)}}/>
                     
-                    <div style={{display:'flex'}}>
-                        <ButtonBox>
+                    <div style={{display:'flex', flexDirection:'column'}}>
+                        <Styled.ButtonBox>
                             <button onClick={EditDone}>수정완료</button>
-                        </ButtonBox>
-                        {/* <ButtonBox onClick={()=>{setEditMypage(false)}}>
+                        </Styled.ButtonBox>
+                        <Styled.ButtonBox onClick={()=>{setEditMypage(false)}}>
                             <button>취소</button>
-                        </ButtonBox> */}
+                        </Styled.ButtonBox>
           </div>
-        </Flex1>
+        </Styled.Flex1>
 
         <Flex2>
           <JoinCrewTitle>참가중인 크루</JoinCrewTitle>
@@ -167,9 +161,9 @@ const EditMypage = ({ myPage, setEditMypage, setReload, reload }) => {
         </Flex2>
 
         <Flex3>
-                    <JoinCrewTitle>좋아요 한 크루</JoinCrewTitle>
+                    <LikeCrewTitle>좋아요 한 크루</LikeCrewTitle>
                     
-                    <JoinCrewContent>
+                    <LikeCrewContent>
 
                         {
                             myPage?.likeCrewList.map((crew) => {
@@ -179,78 +173,20 @@ const EditMypage = ({ myPage, setEditMypage, setReload, reload }) => {
                             })
                         }
                 
-                    </JoinCrewContent>
+                    </LikeCrewContent>
 
                 </Flex3>
-      </Container>
+      </Styled.Container>
     </>
   );
 };
 
-const Container = styled.div`
-  width: 192rem;
-  height: 81.4rem;
-  padding: 11rem 0 11.6rem 0;
-  background-color: #262626;
-  color: #ffffff;
-  font-size: 2rem;
-  display: flex;
-`;
-const Flex1 = styled.div`
-  width: 75rem;
-  height: 100%;
-  border-right: 1px solid #393939;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0rem 0 0 30rem;
-`;
 const Introduce = styled.div`
 color: #666666;
 margin: 3rem 0 1.5rem 7rem;
 font-size: 2rem;
 font-weight: 400;
 `
-
-const ProfileImg = styled.img`
-  width: 25rem;
-  height: 25rem;
-  border-radius: 60%;
-`;
-
-const ProfileNickname = styled.input`
-  width: 30rem;
-  text-align: center;
-  font-size: 3.6rem;
-  margin: 5rem 0 0 0;
-  color: #cccccc;
-  background-color: #333333;
-  border: none;
-`;
-const ButtonBox = styled.div`
-  width: 30rem;
-  height: 60px;
-  margin: 4rem 0 0 0;
-  display: flex;
-  justify-content: space-between;
-  font-family: "Spoqa Han Sans Neo";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-  letter-spacing: -0.05em;
-  button {
-    width: 100%;
-    height: 60px;
-    border: none;
-    color: #666666;
-    background-color: #999999;
-    &:hover {
-      color: #262626;
-      background-color: #ffb800;
-      transition: 0.5s;
-    }
-  }
-`;
 const ProfileContent = styled.textarea`
   width: 83rem;
   height: 8rem;
@@ -273,18 +209,18 @@ const JoinCrewTitle = styled.div`
   width: 12rem;
   margin: 1rem 85.7rem 1.5rem 7rem;
 `;
-
 const JoinCrewContent = styled.div`
-
 color: #FFFFFF;
-width: 83rem;
+width: 47rem;
 height: 9rem;
-margin: 1.5rem 75.7rem 0rem 7rem;
+margin: 1.5rem 0 0rem 7rem;
 overflow: auto;
 ::-webkit-scrollbar {
     display: none;
 }
 `
+const LikeCrewTitle = styled(JoinCrewTitle)``
+const LikeCrewContent = styled(JoinCrewContent)``
 
 const LikeGymTitle = styled.div`
   color: #666666;

@@ -14,151 +14,147 @@ import { DeleteAxios } from "../../Shared/api/main";
 
 
 const Mypage = () => {
-const dispatch = useDispatch()
-const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
-const userInfo = window?.localStorage?.getItem("userInfo")
-// console.log(userInfo)
-const userId = JSON.parse(window?.localStorage?.getItem("userInfo"))?.userId
-// console.log(userId)
+    const userInfo = window?.localStorage?.getItem("userInfo")
+    // console.log(userInfo)
+    const userId = JSON.parse(window?.localStorage?.getItem("userInfo"))?.userId
+    // console.log(userId)
 
-const {isLoading, error, mypage} = useSelector((state)=>state.myPage)
-// console.log(isLoading, error, mypage)
-const myPage = mypage?.data
-// console.log(myPage)
+    const { isLoading, error, mypage } = useSelector((state) => state.myPage)
+    // console.log(isLoading, error, mypage)
+    const myPage = mypage?.data
+    // console.log(myPage)
 
-const params = Number(useParams().memberId)
-// console.log(params)
+    const params = Number(useParams().memberId)
+    // console.log(params)
 
-//프로필 편집 버튼을 누르면 편집모드로 변경합니다.
-const [editMypage, setEditMypage] = useState(false)
-const [reload, setReload] = useState(false)
+    //프로필 편집 버튼을 누르면 편집모드로 변경합니다.
+    const [editMypage, setEditMypage] = useState(false)
+    const [reload, setReload] = useState(false)
 
-useEffect(()=>{
-    dispatch(__getMyPage(params));
-},[dispatch, params, reload])
+    useEffect(() => {
+        dispatch(__getMyPage(params));
+    }, [dispatch, params, reload])
 
-//회원 탈퇴
-const deleteId = async() => {
-    if(window.confirm("정말 탈퇴하시겠어요?")) {
-        await DeleteAxios(`members/withdraw`)
-        .then((res) => {
-            // console.log(res)
-            alert(res.data.data)
-            localStorage.removeItem("userInfo")
-            navigate('/')
-        })
-        .catch((err) => {
-            // console.log(err)
-        })
-    }  
-}
-
-const noLoginGoBack = () => {
-    if(!userInfo) {
-        alert('로그인 사용자만 이용 가능합니다')
-        navigate(-1)
+    //회원 탈퇴
+    const deleteId = async () => {
+        if (window.confirm("정말 탈퇴하시겠어요?")) {
+            await DeleteAxios(`members/withdraw`)
+                .then((res) => {
+                    // console.log(res)
+                    alert(res.data.data)
+                    localStorage.removeItem("userInfo")
+                    navigate('/')
+                })
+                .catch((err) => {
+                    // console.log(err)
+                })
+        }
     }
-}
 
-useEffect(()=>{
-    noLoginGoBack();
-},[userInfo])
+    const noLoginGoBack = () => {
+        if (!userInfo) {
+            alert('로그인 사용자만 이용 가능합니다')
+            navigate(-1)
+        }
+    }
 
-    return(
+    useEffect(() => {
+        noLoginGoBack();
+    }, [userInfo])
+
+    return (
         <>
 
-            { 
-            // isLoading === true ? <Loading /> : 
-                    editMypage === true ? <EditMypage myPage={myPage} setEditMypage={setEditMypage} setReload={setReload} reload={reload}/> : (
+            {editMypage === true ? (<EditMypage myPage={myPage} setEditMypage={setEditMypage} setReload={setReload} reload={reload} />) : (
 
                 <Container>
 
-                <Flex1>
-                    <ProfileImg src={myPage?.imgUrl !== null ? myPage?.imgUrl : 사용자기본이미지}/>
-                        
-                    <ProfileNickname>{myPage?.nickname}</ProfileNickname>
+                    <Flex1>
+                        <ProfileImg src={myPage?.imgUrl !== null ? myPage?.imgUrl : 사용자기본이미지} />
 
-                    {userId !== params ? null :
-                        <>
-                        <ButtonBox onClick={()=>{setEditMypage(true)}}>
-                            <button>수정하기</button>
-                        </ButtonBox>
-                        
-                        <div style={{color:'#666666', fontWeight:'400', margin:'2.5rem 0 0 0'}} type="button"
-                            onClick={deleteId}>
-                            회원 탈퇴
+                        <ProfileNickname>{myPage?.nickname}</ProfileNickname>
+
+                        {userId !== params ? null :
+                            <>
+                                <ButtonBox onClick={() => { setEditMypage(true) }}>
+                                    <button>수정하기</button>
+                                </ButtonBox>
+
+                                <div style={{ color: '#666666', fontWeight: '400', margin: '2.5rem 0 0 0' }} type="button"
+                                    onClick={deleteId}>
+                                    회원 탈퇴
+                                </div>
+                            </>
+                        }
+
+                    </Flex1>
+
+                    <Flex2>
+                        <JoinCrewTitle>참가중인 크루</JoinCrewTitle>
+
+                        <JoinCrewContent>
+
+                            {
+                                myPage?.crewList.map((crew) => {
+                                    return (<div key={`${crew.id}+${crew.name}`} type="button" onClick={() => { navigate(`/crews/${crew.id}`) }}>
+                                        &nbsp; &bull; &nbsp; {crew.name}
+                                    </div>)
+                                })
+                            }
+
+                        </JoinCrewContent>
+
+                        <LikeGymTitle>즐겨찾기 한 클라이밍 짐</LikeGymTitle>
+
+                        <LikeGymContent>
+
+                            {
+                                myPage?.gymList.map((gym) => {
+                                    return (<div key={`${gym.gymId}+${gym.name}`} type="button" onClick={() => { navigate(`/gyms/${gym.gymId}`) }}>
+                                        &nbsp; &bull; &nbsp; {gym.name}
+                                    </div>)
+                                })
+                            }
+
+                        </LikeGymContent>
+
+                        <div style={{ color: '#666666', margin: '3rem 0 1.5rem 7rem', fontSize: '2rem', fontWeight: '400' }}>
+                            소개글
                         </div>
-                        </>
-                    }
-                    
-                </Flex1>
 
-                <Flex2>
-                    <JoinCrewTitle>참가중인 크루</JoinCrewTitle>
-                    
-                    <JoinCrewContent>
+                        <ProfileContent>{myPage?.content}</ProfileContent>
 
-                        {
-                            myPage?.crewList.map((crew) => {
-                                return(<div key={`${crew.id}+${crew.name}`} type="button" onClick={()=>{navigate(`/crews/${crew.id}`)}}>
-                                            &nbsp; &bull; &nbsp; {crew.name}
-                                       </div>)
-                            })
-                        }
-                
-                    </JoinCrewContent>
+                    </Flex2>
 
-                    <LikeGymTitle>즐겨찾기 한 클라이밍 짐</LikeGymTitle>
-                    
-                    <LikeGymContent>
-                        
-                        {
-                            myPage?.gymList.map((gym) => {
-                                return(<div key={`${gym.gymId}+${gym.name}`} type="button" onClick={()=>{navigate(`/gyms/${gym.gymId}`)}}>
-                                            &nbsp; &bull; &nbsp; {gym.name}
-                                       </div>)
-                            })
-                        }
+                    <Flex3>
+                        <JoinCrewTitle>좋아요 한 크루</JoinCrewTitle>
 
-                    </LikeGymContent>
-                        
-                    <div style={{color:'#666666', margin:'3rem 0 1.5rem 7rem', fontSize:'2rem', fontWeight:'400'}}>
-                        소개글
-                    </div>
-                    
-                    <ProfileContent>{myPage?.content}</ProfileContent>
+                        <JoinCrewContent>
 
-                </Flex2>
+                            {
+                                myPage?.likeCrewList.map((crew) => {
+                                    return (<div key={crew.id} type="button" onClick={() => { navigate(`/crews/${crew.id}`) }}>
+                                        &nbsp; &bull; &nbsp; {crew.name}
+                                    </div>)
+                                })
+                            }
 
-                <Flex3>
-                    <JoinCrewTitle>좋아요 한 크루</JoinCrewTitle>
-                    
-                    <JoinCrewContent>
+                        </JoinCrewContent>
 
-                        {
-                            myPage?.likeCrewList.map((crew) => {
-                                return(<div key={crew.id} type="button" onClick={()=>{navigate(`/crews/${crew.id}`)}}>
-                                            &nbsp; &bull; &nbsp; {crew.name}
-                                       </div>)
-                            })
-                        }
-                
-                    </JoinCrewContent>
+                    </Flex3>
 
-                </Flex3>
-
-            </Container>)
+                </Container>)
 
             }
-            
-            <Footer />
         </>
     )
 }
 
-const Container = styled.div`
-width: 192rem;
+export const Container = styled.div`
+max-width: 130rem;
 height: 81.4rem;
 padding: 11rem 0 11.6rem 0;
 background-color: #141414;
@@ -167,28 +163,28 @@ font-size: 2rem;
 display: flex;
 `
 
-const Flex1 = styled.div`
+export const Flex1 = styled.div`
 width: 75rem;
 height: 100%;
 border-right: 1px solid #393939;
 display: flex;
 flex-direction: column;
 align-items: center;
-padding: 0rem 0 0 30rem;
+padding-left: 8rem;
 `
-const ProfileImg = styled.img`
+export const ProfileImg = styled.img`
 width: 25rem;
 height: 25rem;
 border-radius: 60%;
 `
 
-const ProfileNickname = styled.div`
+export const ProfileNickname = styled.div`
 width: 40rem;
 text-align: center;
 font-size: 3.6rem;
 margin: 5rem 0 0 0;
 `
-const ButtonBox = styled.div`
+export const ButtonBox = styled.div`
   width: 30rem;
   height: 60px;
   margin: 4rem 0 0 0;
@@ -212,7 +208,7 @@ const ButtonBox = styled.div`
     }
   }
 `;
-const ProfileContent =styled.div`
+export const ProfileContent = styled.div`
 width: 83rem;
 margin: 0 0 0 7rem;
 font-size: 2rem;
@@ -221,18 +217,18 @@ word-break: break-all;
 /* overflo */
 `
 
-const Flex2 =styled.div`
+export const Flex2 = styled.div`
 width: 42rem;
 height: 100%;
 `
 
-const JoinCrewTitle = styled.div`
+export const JoinCrewTitle = styled.div`
 color: #666666;
 width: 12rem;
 margin: 1rem 85.7rem 1.5rem 7rem ;
 `
 
-const JoinCrewContent = styled.div`
+export const JoinCrewContent = styled.div`
 color: #FFFFFF;
 width: 39.5rem;
 height: 9rem;
@@ -242,12 +238,12 @@ overflow: auto;
     display: none;
 }
 `
-const LikeGymTitle = styled.div`
+export const LikeGymTitle = styled.div`
 color: #666666;
 width: 20rem;
 margin: 3rem 85.7rem 1.5rem 7rem ;
 `
-const LikeGymContent = styled.div`
+export const LikeGymContent = styled.div`
 color: #FFFFFF;
 width: 83rem;
 height: 12rem;
@@ -258,7 +254,7 @@ overflow: auto;
 }
 `
 
-const Flex3 =styled.div`
+export const Flex3 = styled.div`
 width: 35rem;
 height: 100%;
 `

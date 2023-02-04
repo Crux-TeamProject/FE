@@ -207,7 +207,6 @@ const CrewDetail = () => {
     return <Loading />;
   }
   return (
-    <div>
       <Warp>
         {applicationModalVisible && (
           <ApplicationListModal onClose={handleMadalClick} />
@@ -327,8 +326,6 @@ const CrewDetail = () => {
           {photosVisible && <CrewPhotos crew={crew}/>}
         </TabContainer>
       </Warp>
-      <Footer />
-    </div>
   );
 };
 
@@ -363,7 +360,7 @@ const Keyword = styled.div`
 `;
 
 const ThumbnailContainer = styled.div`
-  width: 1920px;
+  width: 100%;
   height: 815px;
   background-color: #202020;
   display: flex;
@@ -374,7 +371,7 @@ const ThumbnailContainer = styled.div`
 `;
 
 const TabContainer = styled.div`
-  width: 1920px;
+  width: 100%;
   min-height: 864px;
   padding-top: 60px;
   height: auto;
@@ -502,16 +499,14 @@ const ButtonBox = styled.div`
 `;
 
 const TabButton = styled.div`
-  margin-top: 80px;
+  width: 120rem;
+  margin: 80px 0 3px 0;
   font-family: "Spoqa Han Sans Neo";
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
   letter-spacing: -0.05em;
   color: #999999;
-  position: absolute;
-  left: 360px;
-  bottom: 3px;
   span {
     &:nth-child(1) {
       padding-right: 40px;

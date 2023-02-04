@@ -10,49 +10,60 @@ import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
 import Footer from "../../Shared/Footer";
+import styled from "styled-components";
 
 const GymDetail = () => {
 
-const [showReview, setShowReview] = useState(false)
-const [reload, setReload] = useState(false)
-const params = useParams().gymId
-// console.log(params)
-const dispatch = useDispatch()
+    const [showReview, setShowReview] = useState(false)
+    const [reload, setReload] = useState(false)
+    const params = useParams().gymId
+    // console.log(params)
+    const dispatch = useDispatch()
 
-const { isLoading, error, gymDetail } = useSelector((state) => state.gymDetail)
-// console.log(isLoading, error, gymDetail)
+    const { isLoading, error, gymDetail } = useSelector((state) => state.gymDetail)
+    // console.log(isLoading, error, gymDetail)
 
-const gym = gymDetail?.data
-// console.log(gym?.likeGym)
+    const gym = gymDetail?.data
+    // console.log(gym?.likeGym)
 
 
-useEffect(()=>{
-    dispatch(__getGymDetail(params))
-},[reload])
+    useEffect(() => {
+        dispatch(__getGymDetail(params))
+    }, [reload])
 
-if (gym === undefined) 
-return(
-    <Loading />
-)
-    return(
-        <div style={{width:'192rem', height:'100rem'}}>
+    if (gym === undefined)
+        return (
+            <Loading />
+        )
+    return (
+        <Wrap>
 
-    {/* content 영역 입니다 */}
-            <Content gym={gym} setShowReview={setShowReview} showReview={showReview} setReload={setReload} reload={reload}/>
+            {/* content 영역 입니다 */}
+            <Content gym={gym} setShowReview={setShowReview} showReview={showReview} setReload={setReload} reload={reload} />
 
-    {/* review 영역 입니다 */}
-        {
-            showReview === true ? null : 
-            <>
-                <img style={{width:'2rem', height:'2rem', position:'absolute', margin:'-5rem 0 0 94rem'}} src="https://www.pngmart.com/files/15/Arrow-Down-PNG-Picture.png"/>
-                <Review gym={gym} setReload={setReload} reload={reload}/>
-            </>
-        }
-            
-            <Footer />
+            {/* review 영역 입니다 */}
+            {
+                showReview === true ? null :
+                    <>
+                        <Img src="https://www.pngmart.com/files/15/Arrow-Down-PNG-Picture.png" />
+                        <Review gym={gym} setReload={setReload} reload={reload} />
+                    </>
+            }
 
-        </div>
+        </Wrap>
     );
 }
+
+const Wrap = styled.div`
+width: 100%;
+`
+
+const Img = styled.img`
+width: 2rem;
+height: 2rem;
+
+display: block;
+margin: 1rem auto;
+`
 
 export default GymDetail;

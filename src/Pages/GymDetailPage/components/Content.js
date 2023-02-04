@@ -59,8 +59,8 @@ return(
 ) 
 
     return(
-        <div style={{width:'192rem', height:'81.5rem', backgroundColor:'#262626', color:'#cccccc'}}>
-            <div style={{width:'192rem', height:'81.5rem', margin:'auto', display:'flex', justifyContent:'center'}}>
+        <div style={{width:'100%', height:'81.5rem', backgroundColor:'#262626', color:'#cccccc'}}>
+            <div style={{width:'100%', height:'81.5rem', margin:'auto', display:'flex', justifyContent:'center'}}>
                 <div style={{width:'60rem', height:'60rem', margin:'10rem 0 0 0'}}>
                     
                     <img src={gym?.imgUrl !== null ? gym?.imgUrl : 클라이밍} 
@@ -121,7 +121,7 @@ return(
                                         <ReviewNickname>{gym.reviews[gym.reviews.length-2].nickname}</ReviewNickname>
                                         <ReviewContent>{gym.reviews[gym.reviews.length-2].content}</ReviewContent>
                                     </ReviewWrap>
-                                </>
+                               ButtonBox </>
                         }
                     </div>
                     <div style={{display:'flex'}}>
