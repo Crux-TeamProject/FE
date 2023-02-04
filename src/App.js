@@ -6,7 +6,7 @@ import Navbar from "./Shared/Navbar";
 
 function App() {
   return (
-    <div className="App">
+    <>
       <Navbar />
 
       <Router />
@@ -14,7 +14,7 @@ function App() {
       <TopBotton />
 
       <Chat/>
-    </div>
+    </>
   );
 }
 

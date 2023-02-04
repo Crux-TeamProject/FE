@@ -7,14 +7,10 @@ import ModalPortal from "../Pages/Login/MordalPortal";
 import LoginModal from "../Pages/Login/LoginModal";
 import Legister from "../Pages/Register/Register";
 import { useSelector, useDispatch } from "react-redux";
-import axios from "axios";
-import Loading from "./Loading";
 import Alam from "./Alam";
 import { EventSourcePolyfill, NativeEventSource } from 'event-source-polyfill';
-import { __getAlam, _readAlam, _addAlam, _deleteAlam, _deleteAlams, __NreadAlam, _minusAlam, _plusAlam } from "../Redux/modules/notification";
-import { __getMyPage } from "../Redux/modules/mypageSlice";
+import { __getAlam, _addAlam, __NreadAlam, _plusAlam } from "../Redux/modules/notification";
 import NavbarDropdown from "./NavbarDropdown";
-import { request } from "./api/core";
 
 
 const Navbar = () => {
@@ -138,65 +134,72 @@ const profileImg = JSON.parse(window?.localStorage?.getItem('userInfo'))?.profil
 
 
   return (
-    <NavContainer homeLocation={homeLocation}> 
-      <ModalPortal>
-        {loginVisible && <LoginModal onClose={handleLoginModal} />}
-        {registerVisible && <Legister onClose={handleRegisterModal} setLoginVisible={setLoginVisible}/>}
-      </ModalPortal>
-      <NavContent>
+    <NavContainer homeLocation={homeLocation}>
+      <Flex>
+        <ModalPortal>
+          {loginVisible && <LoginModal onClose={handleLoginModal} />}
+          {registerVisible && <Legister onClose={handleRegisterModal} setLoginVisible={setLoginVisible}/>}
+        </ModalPortal>
+        <NavContent>
 
-        <NavMain type="button" onClick={() => {navigate("/")}}>
-          CRUX
-        </NavMain>
-        <NavCrew type="button" onClick={() => {navigate("/crews")}}>
-          크루 모임
-        </NavCrew>
-        <NavCreateCrew type="button" onClick={() => {
-          if (userInfo) {
-            navigate("/createcrew")
-          } else { alert('로그인 사용자만 이용 가능합니다') }
-          }}>  
-          크루 생성
-        </NavCreateCrew>
-        <NavGym type="button" onClick={() => {navigate("/gyms")}}>
-          클라이밍짐 후기
-        </NavGym>
-        
-      </NavContent>
+          <NavMain type="button" onClick={() => {navigate("/")}}>
+            CRUX
+          </NavMain>
+          <NavCrew type="button" onClick={() => {navigate("/crews")}}>
+            크루 모임
+          </NavCrew>
+          <NavCreateCrew type="button" onClick={() => {
+            if (userInfo) {
+              navigate("/createcrew")
+            } else { alert('로그인 사용자만 이용 가능합니다') }
+            }}>  
+            크루 생성
+          </NavCreateCrew>
+          <NavGym type="button" onClick={() => {navigate("/gyms")}}>
+            클라이밍짐 후기
+          </NavGym>
           
-          {
-            window.localStorage.getItem("userInfo") !== null ?
-            <NavContentLogin>
-              
+        </NavContent>
+            
+            {
+              window.localStorage.getItem("userInfo") !== null ?
+              <NavContentLogin>
+                
               {/* 알림 드롭다운 */}
-              <AlamImg src={알람종} 
-                onClick={()=>{setShowAlam(!showAlam)}}/>
-              
-              <NreadAlam>{NreadAlams?.data?.count}</NreadAlam>
-              
-              { showAlam ? <Alam setShowAlam={setShowAlam} alams={alams} NreadAlams={NreadAlams}/> : null }
-              
+                <AlamImg src={알람종} 
+                  onClick={()=>{setShowAlam(!showAlam)}}/>
+                
+                <NreadAlam>{NreadAlams?.data?.count}</NreadAlam>
+
+                
               {/* 프로필 이미지 드롭다운 */}
-              <ProfileImg src={profileImg ? profileImg : 사용자이미지} 
-                onClick={()=>{setShowMypage(!showMypage)}}/>
-              
-              { showMypage ? <NavbarDropdown setShowMypage={setShowMypage} userId={userId} removeToken={removeToken}/> : null }
-              
-            </NavContentLogin>
+                <ProfileImg src={profileImg ? profileImg : 사용자이미지} 
+                  onClick={()=>{setShowMypage(!showMypage)}}/>
 
-            :
+              {/* 로그인 후 알람 모달창 */}
+                { showAlam ? <Alam setShowAlam={setShowAlam} alams={alams} NreadAlams={NreadAlams}/> : null }
+                
+              {/* 로그인 유저 만 프로필 클릭 시 navbarDropdown */}
+                { showMypage ? <NavbarDropdown setShowMypage={setShowMypage} userId={userId} removeToken={removeToken}/> : null }
 
-            <NavContentLogin>
-              <NavLogin type="button" onClick={handleLoginModal}>
-                LOGIN
-              </NavLogin>
+                
+              </NavContentLogin>
 
-              <NavRegister type="button" onClick={handleRegisterModal}>
-                REGISTER
-              </NavRegister>
-            </NavContentLogin>
-          }
-          
+              :
+
+              <NavContentLogin>
+                <NavLogin type="button" onClick={handleLoginModal}>
+                  LOGIN
+                </NavLogin>
+
+                <NavRegister type="button" onClick={handleRegisterModal}>
+                  REGISTER
+                </NavRegister>
+              </NavContentLogin>
+            }
+        
+          </Flex>
+
     </NavContainer>
   );
 };
@@ -206,15 +209,20 @@ const NavContainer = styled.div`
   color: #ffffff;
   z-index: 3;
   position: ${props => props.homeLocation === '/' ? "absolute" : "null"};
-  padding: 0 0 4.2rem 0;
-  margin: 0;
-  width: 192rem;
+  padding: 9.2rem 0 4.2rem 0;
+  width: 100%;
   background-color: ${props => props.homeLocation === '/' ? "transparent" : "#000000"};
 `;
 
+const Flex = styled.div`
+  width: 120rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+` 
+
 const NavContent = styled.div`
   width: 65rem;
-  margin: 10rem 0 0 36rem;
   align-items: baseline;
   display: flex;
   
@@ -257,27 +265,22 @@ cursor: pointer;
 `
 const NavContentLogin = styled.div`
 display: flex;
-margin: 10rem 0 0 0;
 align-items: end;
 
-`
-const NavLogin = styled.div`
-margin: 0 25px 0 390px;
 font-size: 16px;
 font-weight: 500;
+`
+const NavLogin = styled.div`
 cursor: pointer;
 `
 
 const NavRegister = styled.div`
-font-size: 16px;
-font-weight: 500;
+margin-left: 4rem;
 cursor: pointer;
 `
 
 const AlamImg = styled.img`
 width: 3rem;
-position: absolute;
-margin: -6px 0 0 42rem;
 cursor: pointer;
 `
 
@@ -286,18 +289,18 @@ width: 2rem;
 height: 2rem;
 background-color: #ffb80091;
 border-radius: 60%;
-position: absolute;
-margin: 0px 0 0 44rem;
-top: 11.5rem;
-padding: 2px 0 0 6.5px;
+margin: 0px 0px 23px -8px;
+font-size: 1.4rem;
+display: flex;
+justify-content: center;
+align-items: center;
 `
 
 const ProfileImg = styled.img`
 width: 5rem;
 height: 5rem;
 border-radius: 60%;
-position: absolute;
-margin: -6px 0 0 49.3rem;
+margin-left: 3rem;
 cursor: pointer;
 `
 

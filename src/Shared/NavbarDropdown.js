@@ -9,23 +9,12 @@ const closeModal = () => {
 const navigate = useNavigate()
 
     return (
-        <ModalPage onClick={closeModal}>
-            <ModalBox onClick={(e)=>e.stopPropagation()}>
+            <ModalBox onClick={closeModal}>
                 <Content onClick={()=>{navigate(`/members/${userId}`)}}>MYPAGE</Content>
                 <Content onClick={removeToken}>LOGOUT</Content>
             </ModalBox>
-        </ModalPage>
     )
 }
-
-const ModalPage = styled.div`
-position: absolute;
-top: 0;
-margin: 0 0 0 -101rem;
-width: 1920px;
-height: 100%;
-z-index: 900;
-`   
 
 const ModalBox = styled.div`
 width: 11rem;
@@ -33,9 +22,8 @@ height: 10rem;
 box-shadow: 0px 80px 80px rgba(0, 0, 0, 0.25);
 border-radius: 15px;
 position: absolute;
-top: 21rem;
-left: 79.7%;
-transform: translate(-50%, -50%);
+top: 16rem;
+margin-left: 4.3rem;
 background: #262626;
 color: #cccccc;
 overflow: auto;

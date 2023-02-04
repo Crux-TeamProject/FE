@@ -14,7 +14,6 @@ function Home() {
 
   return (
     <Container>
-        {/* <Navbar /> */}
 
         <NavSlider />
 
@@ -36,7 +35,8 @@ function Home() {
 }
 
 const Container = styled.div`
-width: 192rem;
+width: 100%;
+margin: 0 auto;
 `
 
 export default Home;

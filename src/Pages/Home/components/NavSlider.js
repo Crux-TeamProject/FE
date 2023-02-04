@@ -25,7 +25,7 @@ const NavSlider = () => {
         fade: true,
         infinite: true,
         speed: 1500,
-        autoplay: playCarousel,
+        // autoplay: playCarousel,
         autoplaySpeed: 5000,
         pauseOnHover: false,
         nextArrow: (
@@ -41,9 +41,8 @@ const NavSlider = () => {
       };
 
 return(
-    <div>
-    <StopButton src={슬라이더정지버튼} type="button" onClick={onClickPlayCarousel}/>
-        <StyledSlider {...settings}>
+    <>
+    <StyledSlider {...settings}>
 
     {/* 1번째 슬라이드 */}
             <Wrap1>
@@ -51,6 +50,7 @@ return(
                     {/* <Top></Top> */}
                     <Mid>지금이 바로 <br/>CRUX와 함께 할 때!</Mid>
                     <Bottom>클라이밍을 즐겁게 시작하고 싶다면 <br/>지금 바로 도전해보세요!</Bottom>
+                    <StopButton src={슬라이더정지버튼} type="button" onClick={onClickPlayCarousel}/>
                 </ContentArea>
                 
             </Wrap1>
@@ -74,7 +74,7 @@ return(
 
         </StyledSlider>
 
-    </div>
+    </>
     );
 }
 
@@ -85,8 +85,8 @@ height: 100rem;
 margin: 0 auto;
 `
 const ContentArea = styled.div`
-width: 62.5%;
-margin: 34rem 0 0 36rem;
+width: 120rem;
+margin: 34rem auto;
 color: #ffffff;
 font-size: 20px;
 font-weight: 500;
@@ -101,25 +101,11 @@ const Bottom = styled.div`
 margin: 3rem 0 0 0;
 `
 
-const Wrap2 = styled.div`
+const Wrap2 = styled(Wrap1)`
 background-image: url(${메인슬라이더2});
-width: 192rem;
-height: 100rem;
-margin: 0 auto;
 `
-const Wrap3 = styled.div`
+const Wrap3 = styled(Wrap1)`
 background-image: url(${메인슬라이더3});
-width: 192rem;
-height: 100rem;
-margin: 0 auto;
-`
-
-const StopButton = styled.img`
-width: 1rem;
-height: 2rem;
-position: absolute;
-margin: 79rem 0 0 41.2rem;
-z-index: 5;
 `
 
 const StyledSlider = styled(Slider)`
@@ -144,7 +130,7 @@ position: relative;
 const Snext = styled.div`
 width: 2rem;
 height: 30px;
-position: absolute;
+position: relative;
 z-index: 4;
 margin: 30rem 0 0 44.5rem;
 line-height: 30px;
@@ -153,14 +139,18 @@ line-height: 30px;
 }
 `;
 
-const Sprev = styled.div`
-width: 2rem;
-height: 30px;
-position: absolute;
-z-index: 4;
+const Sprev = styled(Snext)`
 margin: 30rem 0 0 39rem;
-line-height: 30px;
 `;
+
+const StopButton = styled.img`
+width: 1rem;
+height: 2rem;
+position: absolute;
+/* margin: 79rem 0 0 41.2rem; */
+top: 50%;
+z-index: 5;
+`
 
 
 

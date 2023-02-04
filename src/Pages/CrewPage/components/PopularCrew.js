@@ -130,7 +130,7 @@ return (
 
 
 const Container = styled.div`
-  width: 192rem;
+  width: 100%;
   background-color: #141414;
   color: #999999;
   min-height: 100vh;
