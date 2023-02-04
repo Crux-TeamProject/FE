@@ -99,7 +99,7 @@ const CrewContainer = styled.div`
 `;
 
 const HeaderWrap = styled.div`
-  width: 192rem;
+  width: 100%;
   height: 33.9rem;
   background-color: #262626;
   color: #ffffff;

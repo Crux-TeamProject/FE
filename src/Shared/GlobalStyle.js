@@ -3,7 +3,10 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
 
 body {
-    font-family: Spoqa Han Sans Neo;
+font-family: Spoqa Han Sans Neo;
+
+  /* max-width: 192rem; */
+  background-color: #141414;
 }
 
 h1 {

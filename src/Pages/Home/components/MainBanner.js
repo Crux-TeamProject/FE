@@ -26,7 +26,7 @@ const MainBanner = () => {
 }
 
 const Container = styled.div`
-width: 192rem;
+width: 100%;
 height: 90.5rem;
 background-color: #141414;
 color: #ffffff;

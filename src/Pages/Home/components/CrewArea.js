@@ -51,7 +51,7 @@ return(
                         신규 크루
                 </ChoiceCrew>
             </div>
-            <div style={{width:'1210px', margin:'12px 360px 0 350px', display:'flex'}}>
+            <div style={{width:'1210px', margin:'12px auto', display:'flex'}}>
             
             { showNewCrew ? <CrewListNew crews={newCrews}/> : <CrewList crews={crews}/> }
 
