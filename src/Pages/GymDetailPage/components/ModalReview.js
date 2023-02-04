@@ -3,22 +3,15 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import styled from "styled-components"
 import { Rating } from 'react-simple-star-rating'
 import { useEffect, useState } from "react"
-import { useNavigate, useParams } from 'react-router-dom';
-import 이미지업로드 from "../../../Image/프리뷰box.png"
-import 리뷰기본이미지 from '../../../Image/리뷰기본이미지.jpg'
 import { useRef } from "react";
-import { useCallback } from "react";
 import { ReactComponent as ImgUploadIcon } from "../../../Image/imgUploadBox.svg";
-import axios from "axios";
 import Loading from "../components/ReviewLoading"
 import { PostAxios } from '../../../Shared/api/main';
+import { storage } from '../../../Shared/firebase';
 
 
 function ModalReview({ setModal, gym, reload, setReload }) {
-    const BASE_URL = "https://sparta-tim.shop";
-    // const BASE_URL = "https://01192mg.shop";
 
-    const navigate = useNavigate();
     const closeModal = () => {
         setModal(false);
     };
@@ -40,9 +33,6 @@ function ModalReview({ setModal, gym, reload, setReload }) {
     // 이미지 업로드 <firebase> 라이브러리! 
 
     const [content, setContent] = useState('');
-    const storage = getStorage();
-    // const storageRef = ref(storage);
-
 
     const [imgProductList, setImgProductList] = useState([]);
     // console.log(imgProductList)
@@ -74,7 +64,6 @@ function ModalReview({ setModal, gym, reload, setReload }) {
     setLoading(false)
   };
 
-  
     //이미지 삭제
     const handleDeleteImage = (id) => {
         setImgProductList(imgProductList.filter((_, index) => index !== id));

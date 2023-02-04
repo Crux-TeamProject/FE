@@ -179,7 +179,7 @@ const AlamBox = styled.div`
   box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.4);
   border-radius: 15px;
   position: relative;
-  top: 24rem;
+  top: 44%;
   left: 82%;
   transform: translate(-50%, -50%);
   background: #262626;
@@ -189,7 +189,6 @@ const AlamBox = styled.div`
   font-size: 1.2rem;
 `;
 const AlamLists = styled.div`
-  height: 37rem;
   overflow: auto;
   ::-webkit-scrollbar {
     display: none;
@@ -212,8 +211,6 @@ const AlamDelete = styled.span`
 const AlamsDelete = styled.div`
   font-size: 1.4rem;
   margin: 3rem 0 0 0rem;
-  position: absolute;
-  width: 43rem;
   height: 6rem;
   background: linear-gradient(
     180deg,

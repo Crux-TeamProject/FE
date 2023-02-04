@@ -28,8 +28,6 @@ function Home() {
 
         <GalaryArea />
 
-        <Footer />
-
     </Container>
   );
 }

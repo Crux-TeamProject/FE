@@ -89,7 +89,6 @@ const Crew = () => {
             (<PopularCrew searchData={searchData}/>) : 
               (<NewCrew searchData={searchData}/>)}
       
-      <Footer/>
     </CrewContainer>
   );
 };

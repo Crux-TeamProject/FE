@@ -1,13 +1,10 @@
 import styled from "styled-components";
 import 사용자이미지 from "../../../Image/사용자기본이미지.jpg"
 import Loading from "../../../Shared/Loading";
-import { __delReview } from "../../../Redux/modules/gymDetilSlice";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import EditModalReview from "./EditModalReview";
 import ReviewImgSlider from "./ReviewImgSlider";
-import { useEffect } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import 노랑별 from "../../../Image/노랑별.png"
 import 검은별 from "../../../Image/검은별.png"
@@ -52,7 +49,7 @@ if(gym === undefined) {
 }
 
     return(
-        <div style={{width:'192rem', backgroundColor:'#141414'}}>
+        <div style={{width:'100%', backgroundColor:'#141414'}}>
             <Wrap style={{width:'120rem', margin:'0 auto', padding:'3rem 0 0 0', color:'#999999'}}>
                 
                 {
