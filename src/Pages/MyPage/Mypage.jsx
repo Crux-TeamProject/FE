@@ -156,6 +156,7 @@ const Mypage = () => {
 export const Container = styled.div`
 max-width: 130rem;
 height: 81.4rem;
+margin: 0 auto;
 padding: 11rem 0 11.6rem 0;
 background-color: #141414;
 color: #ffffff;
@@ -164,13 +165,12 @@ display: flex;
 `
 
 export const Flex1 = styled.div`
-width: 75rem;
+width: 40%;
 height: 100%;
 border-right: 1px solid #393939;
 display: flex;
 flex-direction: column;
 align-items: center;
-padding-left: 8rem;
 `
 export const ProfileImg = styled.img`
 width: 25rem;
@@ -209,7 +209,7 @@ export const ButtonBox = styled.div`
   }
 `;
 export const ProfileContent = styled.div`
-width: 83rem;
+width: 65rem;
 margin: 0 0 0 7rem;
 font-size: 2rem;
 font-weight: 500;
@@ -218,21 +218,21 @@ word-break: break-all;
 `
 
 export const Flex2 = styled.div`
-width: 42rem;
+width: 33%;
 height: 100%;
 `
 
 export const JoinCrewTitle = styled.div`
 color: #666666;
 width: 12rem;
-margin: 1rem 85.7rem 1.5rem 7rem ;
+margin: 1rem 0 1.5rem 7rem ;
 `
 
 export const JoinCrewContent = styled.div`
 color: #FFFFFF;
-width: 39.5rem;
+width: 100%;
 height: 9rem;
-margin: 1.5rem 75.7rem 0rem 7rem;
+margin: 1.5rem 0 0rem 7rem;
 overflow: auto;
 ::-webkit-scrollbar {
     display: none;
@@ -245,7 +245,7 @@ margin: 3rem 85.7rem 1.5rem 7rem ;
 `
 export const LikeGymContent = styled.div`
 color: #FFFFFF;
-width: 83rem;
+width: 100%;
 height: 12rem;
 margin: 1.5rem 75.7rem 0 7rem;
 overflow: auto;

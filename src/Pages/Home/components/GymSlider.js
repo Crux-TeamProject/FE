@@ -14,11 +14,8 @@ const SliderGym = ({ gyms }) => {
         dots: false,
         infinite: true,
         speed: 500,
-        // autoplay: true,
-        // autoplaySpeed: 5000,
-        slidesToShow: 1.7,
+        slidesToShow: 1.5,
         slidesToScroll: 1,
-        pauseOnHover: true,
         nextArrow: (
             <Snext>
                 <img src={슬라이더오른쪽버튼} style={{width:'2.5rem'}}/>
@@ -32,32 +29,33 @@ const SliderGym = ({ gyms }) => {
       };
 
     return(
-        <div>
-        
-            <StyledSlider {...settings}>
-
-        {/* Gym 슬라이드 */}
-
+        <StyledSlider {...settings}>
             {
                 gyms?.map((gym,i)=>{
                     return(
-                        <Wrap key={i}>
-                            <GymName onClick={()=>{navigate(`/gyms/${gym.id}`)}}> 
-                                {gym.name} (평점: {Number(gym.avgScore).toFixed(2)}점)
-                                <GymNavi>바로가기</GymNavi>
-                            </GymName>
-                            <img src={gym.imgUrl !== null ? gym.imgUrl : 기본클라이밍짐} alt="" 
-                                 style={{width:'630px', height:'630px', margin:'0 2%', position:'relative'}}/>
+                        <Wrap key={gym.lat}>
+                            <GymImg 
+                            img={gym.imgUrl !== null ? gym.imgUrl : 기본클라이밍짐} 
+                            >
+                                <GymName onClick={()=>{navigate(`/gyms/${gym.id}`)}}> 
+                                    {gym.name} (평점: {Number(gym.avgScore).toFixed(2)}점)
+                                    <GymNavi>바로가기</GymNavi>
+                                </GymName>
+                            </GymImg>
                         </Wrap>
                     )
                 })
             }
-
-            </StyledSlider>
-
-        </div>
+        </StyledSlider>
     );
 }
+const GymImg = styled.div`
+background-image: url(${props => props.img});
+background-position: center;
+background-size: cover;
+width: 630px;
+height: 630px;
+` 
 const blinkEffect = keyframes`
     0% {
         color: white;
@@ -69,8 +67,32 @@ const blinkEffect = keyframes`
         color: white;
     }
 `
+const StyledSlider = styled(Slider)`
+max-width: 100rem;
+width: 63%;
+height: 70rem;
+float: right;
+margin: 17rem auto;
+.slick-prev::before,
+.slick-next::before{
+    opacity: 0;
+    display: none;
+}
+.slick-slide div {
+    //슬라이더  컨텐츠
+}
 
+.slick-next {
+    top: 61%;
+    left: -30%;
+}
+.slick-prev {
+    top: 61%;
+    left: -41%;
+}
+`
 const Wrap = styled.div`
+margin: 0 10px;
 :hover {
     color: #ffb800;
     span{
@@ -93,41 +115,54 @@ text-decoration: underline;
 margin-left: 5px;
 `
 
-const StyledSlider = styled(Slider)`
-width: 100%;
-position: relative;
-.slick-prev::before,
-.slick-next::before{
-    opacity: 0;
-    display: none;
-}
-.slick-slide div {
-    //슬라이더  컨텐츠
-    /* cursor: pointer; */
-}
-`
+// const Snext = styled.div`
+// width: 100%;
+// height: 30px;
+// position: absolute;
+// top: 10%;
+// z-index: 99;
+// /* margin: 3% 1508px 0 0; */
+// line-height: 30px;
+
+// `;
+// const Snext2 = styled.div`
+// width: 120rem;
+// margin: 0 auto;
+// .slick-next {
+//     right: none;
+// }
+// `
+// const SnextImg = styled.div`
+// background-image: url(${props => props.img});
+// background-position: center;
+// background-size: cover;
+// width: 100px;
+// height: 100px;
+// z-index: 99;
+// `
+
+// const Sprev = styled.div`
+// width: 30px;
+// height: 30px;
+// position: absolute;
+// z-index: 99;
+// margin: 3% 0 0 -520px;
+// /* text-align: left; */
+// line-height: 30px;
+// `;
+
+
+export default SliderGym;
 
 const Snext = styled.div`
 width: 30px;
 height: 30px;
-position: absolute;
-/* right: 16px; */
 z-index: 99;
-margin: 0% 1500px 0 0;
-/* text-align: right; */
 line-height: 30px;
 `;
 
-const Sprev = styled.div`
+const Sprev = styled(Snext)`
 width: 30px;
 height: 30px;
 position: absolute;
-/* left: 16px; */
-z-index: 99;
-margin: 0 0 0 -470px;
-/* text-align: left; */
-line-height: 30px;
-`;
-
-
-export default SliderGym;
+`

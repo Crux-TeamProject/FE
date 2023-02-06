@@ -41,22 +41,14 @@ const GymArea = () => {
             </Explain>
         </TextBox>
 
-        <PGymSlider /> 
-        
-        {/* <GymSlider gyms={gym} /> */}
+    {/* Gym슬라이더 */}
+      
+        <GymSlider gyms={gym} />
 
       </Container>
 
   );
 };
-
-const PGymSlider = styled.div`
-width: 100rem;
-height: 70rem;
-float: right;
-margin: 17rem auto;
-border: 1px solid tomato;
-`
 
 const Container = styled.div`
 max-width: 192rem;

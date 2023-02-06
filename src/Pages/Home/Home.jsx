@@ -17,7 +17,6 @@ function Home() {
 
         <NavSlider />
 
-      {/* 메인 배너 */}
         <MainBanner />
 
         <CrewArea />
