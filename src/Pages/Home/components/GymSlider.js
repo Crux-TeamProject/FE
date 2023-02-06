@@ -9,7 +9,6 @@ import { useNavigate } from "react-router-dom";
 
 const SliderGym = ({ gyms }) => {
     const navigate = useNavigate()
-    console.log(gyms)
 
     const settings = {
         dots: false,
@@ -19,9 +18,6 @@ const SliderGym = ({ gyms }) => {
         slidesToScroll: 1,
         nextArrow: (
             <Snext>
-                {/* <Snext2> */}
-                    {/* <SnextImg img={슬라이더오른쪽버튼}/> */}
-                {/* </Snext2> */}
                 <img src={슬라이더오른쪽버튼} style={{width:'2.5rem'}}/>
             </Snext>
         ),

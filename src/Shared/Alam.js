@@ -79,8 +79,10 @@ const Alam = ({ setShowAlam, alams, NreadAlams }) => {
   };
 
   return (
-    <ModalPage onClick={closeModal}>
-      <AlamBox onClick={(e) => e.stopPropagation()}>
+      <AlamBox 
+      onClick={closeModal}
+      count={alams?.data.length}
+      >
         {alams?.data.length === 0 ? (
           <div
             style={{
@@ -97,7 +99,9 @@ const Alam = ({ setShowAlam, alams, NreadAlams }) => {
               나의 알림
             </div>
 
-            <AlamLists>
+            <AlamLists
+            onClick={(e)=>{e.stopPropagation()}}
+            >
               {alams?.data.map((alam) => {
                 return (
                   <div key={alam.id}>
@@ -158,37 +162,26 @@ const Alam = ({ setShowAlam, alams, NreadAlams }) => {
           )}
         </AlamsDelete>
       </AlamBox>
-    </ModalPage>
   );
 };
-
-const ModalPage = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 900;
-  margin: 0 auto;
-`;
 
 const AlamBox = styled.div`
   width: 43rem;
   min-height: 14.1rem;
-  max-height: 55rem;
+  max-height: 51rem;
   box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.4);
   border-radius: 15px;
-  position: relative;
-  top: 44%;
-  left: 82%;
-  transform: translate(-50%, -50%);
+  position: absolute;
+  top: ${props=>props.count === 0 ? "23.5rem" : props.count === 1 ? "29.5rem" : props.count === 2 ? "32.5rem" : props.count === 3 ? "35.5rem" : props.count === 4 ? "38.5rem" : "41.5rem"};
+  transform: translate(-46%,-50%);
   background: #262626;
   color: #cccccc;
-  overflow: auto;
+  overflow: hidden;
   z-index: 901;
   font-size: 1.2rem;
 `;
 const AlamLists = styled.div`
+  max-height: 35rem;
   overflow: auto;
   ::-webkit-scrollbar {
     display: none;
