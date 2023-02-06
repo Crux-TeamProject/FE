@@ -131,22 +131,22 @@ const EditMypage = ({ myPage, setEditMypage, setReload, reload }) => {
           </div>
         </Styled.Flex1>
 
-        <Flex2>
-          <JoinCrewTitle>참가중인 크루</JoinCrewTitle>
+        <Styled.Flex2>
+          <Styled.JoinCrewTitle>참가중인 크루</Styled.JoinCrewTitle>
 
-          <JoinCrewContent>
+          <Styled.JoinCrewContent>
             {myPage?.crewList.map((crew) => {
               return <div key={crew.id}>&bull; &nbsp; {crew.name}</div>;
             })}
-          </JoinCrewContent>
+          </Styled.JoinCrewContent>
 
-          <LikeGymTitle>즐겨찾기 한 클라이밍 짐</LikeGymTitle>
+          <Styled.LikeGymTitle>즐겨찾기 한 클라이밍 짐</Styled.LikeGymTitle>
 
-          <LikeGymContent>
+          <Styled.LikeGymContent>
             {myPage?.gymList.map((gym) => {
               return <div key={gym.id}>&bull; &nbsp; {gym.name}</div>;
             })}
-          </LikeGymContent>
+          </Styled.LikeGymContent>
 
           <Introduce>
             소개글
@@ -158,12 +158,12 @@ const EditMypage = ({ myPage, setEditMypage, setReload, reload }) => {
               setEditContent(e.target.value);
             }}
           />
-        </Flex2>
+        </Styled.Flex2>
 
-        <Flex3>
-                    <LikeCrewTitle>좋아요 한 크루</LikeCrewTitle>
+        <Styled.Flex3>
+                    <Styled.JoinCrewTitle>좋아요 한 크루</Styled.JoinCrewTitle>
                     
-                    <LikeCrewContent>
+                    <Styled.JoinCrewContent>
 
                         {
                             myPage?.likeCrewList.map((crew) => {
@@ -173,9 +173,9 @@ const EditMypage = ({ myPage, setEditMypage, setReload, reload }) => {
                             })
                         }
                 
-                    </LikeCrewContent>
+                    </Styled.JoinCrewContent>
 
-                </Flex3>
+                </Styled.Flex3>
       </Styled.Container>
     </>
   );
@@ -199,47 +199,5 @@ const ProfileContent = styled.textarea`
   border: none;
   word-break: break-all;
 `;
-
-const Flex2 = styled.div`
-  width: 35rem;
-  height: 100%;
-`;
-const JoinCrewTitle = styled.div`
-  color: #666666;
-  width: 12rem;
-  margin: 1rem 85.7rem 1.5rem 7rem;
-`;
-const JoinCrewContent = styled.div`
-color: #FFFFFF;
-width: 47rem;
-height: 9rem;
-margin: 1.5rem 0 0rem 7rem;
-overflow: auto;
-::-webkit-scrollbar {
-    display: none;
-}
-`
-const LikeCrewTitle = styled(JoinCrewTitle)``
-const LikeCrewContent = styled(JoinCrewContent)``
-
-const LikeGymTitle = styled.div`
-  color: #666666;
-  width: 20rem;
-  margin: 3rem 85.7rem 1.5rem 7rem;
-`;
-const LikeGymContent = styled.div`
-color: #FFFFFF;
-width: 83rem;
-height: 12rem;
-margin: 1.5rem 75.7rem 0 7rem;
-overflow: auto;
-::-webkit-scrollbar {
-    display: none;
-}
-`
-const Flex3 =styled.div`
-width: 35rem;
-height: 100%;
-`
 
 export default EditMypage;
