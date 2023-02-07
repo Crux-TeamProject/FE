@@ -35,7 +35,7 @@ return (
     <Wrap
     ref={ref}
     variants={motionBox}
-    initial={isView ? "initial" : "none"}
+    initial="initial"
     animate={isView ? "animate" : "none"}
     >
         {

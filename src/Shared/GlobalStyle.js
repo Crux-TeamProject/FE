@@ -6,7 +6,10 @@ body {
 font-family: Spoqa Han Sans Neo;
 
   /* max-width: 192rem; */
-  background-color: #141414;
+background-color: #141414;
+@media(max-width: 768px) {
+    width: 130rem;
+}
 }
 
 h1 {

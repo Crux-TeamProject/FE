@@ -77,6 +77,9 @@ top: 20rem;
 color: #ffffff;
 font-size: 20px;
 font-weight: 500;
+@media(max-width: 768px) {
+    width: 130rem;
+}
 `
 const ContentArea2 = styled.div`
 width: 120rem;

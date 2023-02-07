@@ -212,6 +212,9 @@ const NavContainer = styled.div`
   padding: 9.2rem 0 4.2rem 0;
   width: 100%;
   background-color: ${props => props.homeLocation === '/' ? "transparent" : "#000000"};
+  @media(max-width: 768px) {
+    left: 12%
+  }
 `;
 
 const Flex = styled.div`
