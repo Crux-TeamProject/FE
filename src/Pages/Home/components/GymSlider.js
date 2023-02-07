@@ -71,8 +71,10 @@ const StyledSlider = styled(Slider)`
 max-width: 100rem;
 width: 63%;
 height: 70rem;
+position: relative;
+top: 30%;
 float: right;
-margin: 17rem auto;
+margin: 0 auto;
 .slick-prev::before,
 .slick-next::before{
     opacity: 0;
@@ -83,16 +85,16 @@ margin: 17rem auto;
 }
 
 .slick-next {
-    top: 61%;
+    top: 44%;
     left: -30%;
 }
 .slick-prev {
-    top: 61%;
+    top: 44%;
     left: -41%;
 }
 `
 const Wrap = styled.div`
-margin: 0 10px;
+/* margin: 0 10px; */
 :hover {
     color: #ffb800;
     span{
