@@ -178,7 +178,5 @@ ref기반의 react-hook-from 라이브러리를 사용하여 사용자가 트리
 - [Crux 이용하러 가기](https://youmadeit.shop/)
 - [프론트엔드 GitHub](https://github.com/Crux-TeamProject/FE)
 - [백엔드 GitHub](https://github.com/Crux-TeamProject/BE)
-- [팀 Notion](https://www.notion.so/6-b8b446f2809c49148f9be2cd678fe538)
-- [API 명세서](https://www.notion.so/API-e5a62aa1845b47a5bc8c8dd10dbc22ac)
 
 <br />
