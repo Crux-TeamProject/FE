@@ -8,7 +8,7 @@
 
 <img src="https://user-images.githubusercontent.com/88928469/201088609-d9e8bafb-cb82-4c3d-aa5a-ec770e7fecb6.gif">
 
-#### [ -> CRUX 바로가기](https://youmadeit.shop/)
+#### [ -> CRUX 취업으로 인한 2023.02.13 서비스 종료😎](https://youmadeit.shop/)
 
 <br />
 
@@ -175,7 +175,6 @@ ref기반의 react-hook-from 라이브러리를 사용하여 사용자가 트리
 <br>
 
 ## 🔗 바로가기
-- [Crux 이용하러 가기](https://youmadeit.shop/)
 - [프론트엔드 GitHub](https://github.com/Crux-TeamProject/FE)
 - [백엔드 GitHub](https://github.com/Crux-TeamProject/BE)
 
